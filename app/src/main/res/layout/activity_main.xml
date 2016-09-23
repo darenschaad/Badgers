@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/button" />
+        android:id="@+id/viewAllButton" />
 
     <Button
         android:text="Search Badges"
@@ -37,7 +37,7 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="84dp"
-        android:id="@+id/button2" />
+        android:id="@+id/searchButton" />
 
     <EditText
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:id="@+id/editText"
+        android:id="@+id/searchEditText"
         android:hint="Enter Keywoards to Search"
         android:textAlignment="center" />
 </RelativeLayout>
