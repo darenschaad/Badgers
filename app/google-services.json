@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "652987549074",
+    "firebase_url": "https://badgers.firebaseio.com",
+    "project_id": "firebase-badgers",
+    "storage_bucket": "firebase-badgers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652987549074:android:af24ea0a50f527a3",
+        "android_client_info": {
+          "package_name": "com.epicodus.badgers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652987549074-jdsvndevd5ltie13ue2srhpcl7sc9neh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEshq6LFGBV8Qlj8ETnNUpkPWWf3KiP4k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
