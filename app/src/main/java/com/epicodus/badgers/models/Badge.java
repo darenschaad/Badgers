@@ -1,57 +1,58 @@
 package com.epicodus.badgers.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Daren on 9/23/2016.
  */
 
 public class Badge {
-    private String mName;
-    private String mImage;
-    private double mIndex;
-    private double mLatitude;
-    private double mLongitude;
-    private double mRating;
-    private ArrayList<String> mTags;
+    String name;
+    String imageUrl;
+    String index;
+    double latitude;
+    double longitude;
+    double rating;
+    List<String> tags = new ArrayList<>();
 
+    public Badge() {}
 
-
-    public Badge(String name, String image, double index, double latitude, double longitude, double rating, ArrayList<String> tags){
-        this.mName = name;
-        this.mImage = image;
-        this.mIndex = index;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
-        this.mRating = rating;
-        this.mTags = tags;
+    public Badge(String name, String imageUrl, String index, double latitude, double longitude, double rating, ArrayList<String> tags){
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.index = index;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.rating = rating;
+        this.tags = tags;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
-    public String getImage() {
-        return mImage;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public double getIndex() {
-        return mIndex;
+    public String getIndex() {
+        return index;
     }
 
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
 
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
 
     public double getRating() {
-        return mRating;
+        return rating;
     }
 
-    public ArrayList<String> getTags() {
-        return mTags;
+    public List<String> getTags() {
+        return tags;
     }
 }

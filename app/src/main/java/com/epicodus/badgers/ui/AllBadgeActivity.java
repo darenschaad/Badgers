@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
+import com.epicodus.badgers.models.Badge;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AllBadgeActivity extends AppCompatActivity {
 
     private DatabaseReference mRef;
+    private ValueEventListener mRefListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +25,12 @@ public class AllBadgeActivity extends AppCompatActivity {
 
         mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
 
-        mRef.addValueEventListener(new ValueEventListener() {
+        mRefListener = mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
-                    String name = badgeSnapShot.getValue().toString();
-                    Log.d("FireBase Test", name);
+                    Badge badge = badgeSnapShot.getValue(Badge.class);
+                    Log.d("FireBase Test", badge.getImageUrl());
                 }
             }
 
@@ -37,5 +39,11 @@ public class AllBadgeActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRef.removeEventListener(mRefListener);
     }
 }
