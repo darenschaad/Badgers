@@ -13,6 +13,7 @@ import com.epicodus.badgers.R;
 
 import com.epicodus.badgers.models.Badge;
 import com.epicodus.badgers.ui.BadgeDetailActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -69,6 +70,7 @@ public class BadgeListAdapter extends RecyclerView.Adapter<BadgeListAdapter.Badg
         }
 
         public void bindBadge(Badge badge) {
+            Picasso.with(itemView.getContext()).load(badge.getImageUrl()).into(mBadgeImageView);
             mNameTextView.setText(badge.getName());
             mTagTextView.setText(badge.getTags().get(0));
             mRatingTextView.setText("Rating: " + badge.getRating() + "/5");
