@@ -1,0 +1,48 @@
+{
+  "badges" : {
+    "-KHLTOv7JMjOzRePqJLQ" : {
+      "tags" : [ "biking", "bicycle", "outdoor", "bars", "bar", "beer" ],
+      "address" : ["123 E Burnside St.", "Kerns", "Portland, OR 97214"],
+      "imageUrl" : "http://darenschaad.github.io/hangman/img/lose.jpeg",
+      "index" : "0",
+      "latitude" : 45.523037,
+      "longitude" : -122.641693,
+      "name" : "Naked Bike Ride",
+      "pushId" : "-KHLTOv7JMjOzRePqJLQ",
+      "rating" : 4.5
+    },
+    "-KHLTl7S7c56bPWHzG-y" : {
+      "tags" : [ "biking", "bicycle", "outdoor", "endurance", "exercise"],
+      "address" : ["609 SE Ankeny St", "Ste C", "Industrial District", "Portland, OR 97214"],
+      "imageUrl" : "https://s3-media2.fl.yelpcdn.com/bphoto/M6fXwFLri5V3fu1i-OF_kQ/o.jpg",
+      "index" : "2",
+      "latitude" : 45.5224113,
+      "longitude" : -122.6593781,
+      "name" : "Bike Ten Miles",
+      "pushId" : "-KHLTl7S7c56bPWHzG-y",
+      "rating" : 4.5
+    },
+    "-KHLTn5vkUYesVo7HnUW" : {
+      "tags" : [ "outdoor", "endurance", "exercise", "downtown", "hydration" ],
+      "address" : ["123 E Burnside St.", "Kerns", "Portland, OR 97214"],
+      "imageUrl" : "https://s3-media1.fl.yelpcdn.com/bphoto/vUiiP5DO5pOauPRDZn-WzQ/o.jpg",
+      "index" : "3",
+      "latitude" : 45.512166,
+      "longitude" : -122.653066,
+      "name" : "Drink From All The Benson Bubblers",
+      "pushId" : "-KHLTn5vkUYesVo7HnUW",
+      "rating" : 4.0
+    },
+    "-KHLTrlD4fhH9BRER5Yh" : {
+      "tags" : [ "excess", "alcohol", "outdoor", "bars", "bar", "beer", "booze" ],
+      "address" : ["123 E Burnside St.", "Kerns", "Portland, OR 97214"],
+      "imageUrl" : "https://s3-media3.fl.yelpcdn.com/bphoto/aZxXKTNbz__R8WZH1z2GJg/o.jpg",
+      "index" : "1",
+      "latitude" : 45.505118,
+      "longitude" : -122.652924,
+      "name" : "Get Cut-Off At A Bar",
+      "pushId" : "-KHLTrlD4fhH9BRER5Yh",
+      "rating" : 4.0
+    }
+  }
+}

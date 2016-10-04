@@ -1,5 +1,7 @@
 package com.epicodus.badgers.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +9,12 @@ import java.util.List;
  * Created by Daren on 9/23/2016.
  */
 
+@Parcel
 public class Badge {
     String name;
     String imageUrl;
     String index;
+    List<String> address = new ArrayList<>();
     double latitude;
     double longitude;
     double rating;
@@ -18,10 +22,11 @@ public class Badge {
 
     public Badge() {}
 
-    public Badge(String name, String imageUrl, String index, double latitude, double longitude, double rating, ArrayList<String> tags){
+    public Badge(String name, String imageUrl, String index, ArrayList<String> address, double latitude, double longitude, double rating, ArrayList<String> tags){
         this.name = name;
         this.imageUrl = imageUrl;
         this.index = index;
+        this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.rating = rating;
@@ -35,6 +40,8 @@ public class Badge {
     public String getImageUrl() {
         return imageUrl;
     }
+
+    public List<String> getAddress() { return address; }
 
     public String getIndex() {
         return index;
