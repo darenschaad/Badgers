@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.searchButton:
                 Log.d("button", "button Clicked");
-                String keyword = mSearchEditText.getText().toString();
+                String keywords = mSearchEditText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, SearchBadgeActivity.class);
-                intent.putExtra("keyword",keyword);
+                intent.putExtra("keywords",keywords);
                 startActivity(intent);
                 break;
             case R.id.viewAllButton:
