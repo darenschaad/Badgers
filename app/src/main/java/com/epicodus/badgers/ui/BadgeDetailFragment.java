@@ -32,6 +32,9 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
 
     private Badge mBadge;
+    private static final int MAX_WIDTH = 400;
+    private static final int MAX_HEIGHT = 300;
+
 
 
     public static BadgeDetailFragment newInstance(Badge badge) {
@@ -55,7 +58,7 @@ public class BadgeDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_badge_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mBadge.getImageUrl()).into(mImageLabel);
+        Picasso.with(view.getContext()).load(mBadge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mImageLabel);
         mNameLabel.setText(mBadge.getName());
         mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
         mAddressLabel.setText(android.text.TextUtils.join(", ", mBadge.getAddress()));
