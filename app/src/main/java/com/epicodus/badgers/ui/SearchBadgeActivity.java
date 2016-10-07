@@ -37,8 +37,10 @@ public class SearchBadgeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_badge);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        final String keyWords = intent.getStringExtra("keywords");
-        Log.d("location", keyWords);
+        final ArrayList<String> keyWords = intent.getStringArrayListExtra("keywords");
+        Log.d("location", keyWords.get(0));
+        Log.d("location", keyWords.get(1));
+
 
         mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
 
@@ -48,7 +50,7 @@ public class SearchBadgeActivity extends AppCompatActivity {
                 for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
                     Badge badge = badgeSnapShot.getValue(Badge.class);
                     for (int i=0; i<badge.getTags().size(); i++) {
-                        if (badge.getTags().get(i).contains(keyWords)) {
+                        if (badge.getTags().get(i).contains(keyWords.get(0))) {
                             mBadges.add(badge);
                             break;
                         }

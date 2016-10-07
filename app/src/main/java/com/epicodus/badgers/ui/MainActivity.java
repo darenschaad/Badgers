@@ -10,6 +10,11 @@ import android.widget.EditText;
 
 import com.epicodus.badgers.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -33,10 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.searchButton:
-                Log.d("button", "button Clicked");
-                String keywords = mSearchEditText.getText().toString();
+                String[] keywordArray =(mSearchEditText.getText().toString().split(", | "));
+                ArrayList<String> keywords = new ArrayList<>(Arrays.asList(keywordArray));
                 Intent intent = new Intent(MainActivity.this, SearchBadgeActivity.class);
-                intent.putExtra("keywords",keywords);
+                intent.putStringArrayListExtra("keywords",keywords);
                 startActivity(intent);
                 break;
             case R.id.viewAllButton:
