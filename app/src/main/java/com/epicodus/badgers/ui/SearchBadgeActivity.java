@@ -49,10 +49,14 @@ public class SearchBadgeActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
                     Badge badge = badgeSnapShot.getValue(Badge.class);
-                    for (int i=0; i<badge.getTags().size(); i++) {
-                        if (badge.getTags().get(i).contains(keyWords.get(0))) {
-                            mBadges.add(badge);
-                            break;
+                    for (int i=0; i<keyWords.size(); i++ ){
+                        for (int j=0; j<badge.getTags().size(); j++) {
+                            if (badge.getTags().get(j).contains(keyWords.get(i))) {
+                                if(!mBadges.contains(badge)) {
+                                    mBadges.add(badge);
+                                    break;
+                                }
+                            }
                         }
                     }
                 }
