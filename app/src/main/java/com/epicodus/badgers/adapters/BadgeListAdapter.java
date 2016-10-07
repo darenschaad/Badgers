@@ -61,6 +61,8 @@ public class BadgeListAdapter extends RecyclerView.Adapter<BadgeListAdapter.Badg
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
 
         private Context mContext;
+        private static final int MAX_WIDTH = 200;
+        private static final int MAX_HEIGHT = 200;
 
         public BadgeViewHolder(View itemView) {
             super(itemView);
@@ -70,7 +72,7 @@ public class BadgeListAdapter extends RecyclerView.Adapter<BadgeListAdapter.Badg
         }
 
         public void bindBadge(Badge badge) {
-            Picasso.with(itemView.getContext()).load(badge.getImageUrl()).into(mBadgeImageView);
+            Picasso.with(itemView.getContext()).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
             mNameTextView.setText(badge.getName());
             mTagTextView.setText(badge.getTags().get(0));
             mRatingTextView.setText("Rating: " + badge.getRating() + "/5");
