@@ -38,8 +38,7 @@ public class SearchBadgeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Intent intent = getIntent();
         final ArrayList<String> keyWords = intent.getStringArrayListExtra("keywords");
-        Log.d("location", keyWords.get(0));
-        Log.d("location", keyWords.get(1));
+
 
 
         mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);

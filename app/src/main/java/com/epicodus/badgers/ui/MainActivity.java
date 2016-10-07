@@ -1,5 +1,6 @@
 package com.epicodus.badgers.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.epicodus.badgers.R;
 
@@ -38,11 +40,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.searchButton:
-                String[] keywordArray =(mSearchEditText.getText().toString().split(", | "));
-                ArrayList<String> keywords = new ArrayList<>(Arrays.asList(keywordArray));
-                Intent intent = new Intent(MainActivity.this, SearchBadgeActivity.class);
-                intent.putStringArrayListExtra("keywords",keywords);
-                startActivity(intent);
+                String searchQuery = mSearchEditText.getText().toString();
+                Log.d("editText", mSearchEditText.getText().toString());
+                if(searchQuery.trim().equals("")){
+                    Toast.makeText(this,"Please Provide a Keyword, or Keywords to Search Badges", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    String[] keywordArray =(searchQuery.split(", | |,"));
+                    ArrayList<String> keywords = new ArrayList<>(Arrays.asList(keywordArray));
+                    Intent intent = new Intent(MainActivity.this, SearchBadgeActivity.class);
+                    intent.putStringArrayListExtra("keywords",keywords);
+                    startActivity(intent);
+                }
+
                 break;
             case R.id.viewAllButton:
                 Intent intent1 = new Intent(MainActivity.this, AllBadgeActivity.class);
