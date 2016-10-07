@@ -1,6 +1,8 @@
 package com.epicodus.badgers.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BadgeDetailFragment extends Fragment {
+public class BadgeDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.badgeImageView) ImageView mImageLabel;
     @BindView(R.id.badgeNameTextView) TextView mNameLabel;
     @BindView(R.id.tagsTextView) TextView mTagsLabel;
@@ -58,6 +60,8 @@ public class BadgeDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_badge_detail, container, false);
         ButterKnife.bind(this, view);
 
+        mAddressLabel.setOnClickListener(this);
+
         Picasso.with(view.getContext()).load(mBadge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mImageLabel);
         mNameLabel.setText(mBadge.getName());
         mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
@@ -65,4 +69,15 @@ public class BadgeDetailFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v == mAddressLabel) {
+            double latitude = mBadge.getLatitude();
+            double longitude = mBadge.getLongitude();
+
+            Uri location = Uri.parse("geo:" + latitude + "," + longitude + "?z=14&q=<" + latitude  + ">,<" + longitude + ">(" + mBadge.getName() + ")");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+            startActivity(mapIntent);
+        }
+    }
 }
