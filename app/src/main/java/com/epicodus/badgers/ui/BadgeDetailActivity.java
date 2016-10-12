@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.epicodus.badgers.R;
 import com.epicodus.badgers.adapters.BadgePagerAdapter;
 import com.epicodus.badgers.models.Badge;
+import com.epicodus.badgers.util.ScaleAndFadePageTransformer;
 
 import org.parceler.Parcels;
 
@@ -32,5 +33,6 @@ public class BadgeDetailActivity extends AppCompatActivity {
         adapterViewPager = new BadgePagerAdapter(getSupportFragmentManager(), mBadges);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
+        mViewPager.setPageTransformer(true, new ScaleAndFadePageTransformer());
     }
 }
