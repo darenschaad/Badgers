@@ -9,6 +9,7 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
@@ -38,9 +39,11 @@ import butterknife.ButterKnife;
 public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.badgeImageView) ImageView mImageLabel;
     @BindView(R.id.badgeNameTextView) TextView mNameLabel;
-    @BindView(R.id.tagsTextView) TextView mTagsLabel;
+//    @BindView(R.id.tagsTextView) TextView mTagsLabel;
     @BindView(R.id.indexTextView) TextView mIndexLabel;
     @BindView(R.id.categoryTextView) TextView mCategoryLabel;
+    @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
+    @BindView(R.id.proofTextView) TextView mProofTextView;
     @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
 
     private Badge mBadge;
@@ -95,12 +98,16 @@ public class BadgeDetailFragment extends Fragment {
 
         mNameLabel.setText(mBadge.getName());
         mIndexLabel.setText(Double.toString(mBadge.getIndex()));
-        mCategoryLabel.setText("This is a test to see if the length works");
+        mCategoryLabel.setText(String.valueOf(mBadge.getCategory()));
 //        mCategoryLabel.setText(String.valueOf(mBadge.getCategory()));
 //        mCategoryLabel.setRotation(-90);
         ViewGroup.LayoutParams params = mCategoryLabel.getLayoutParams();
         params.width = height;
         mCategoryLabel.setLayoutParams(params);
+        mDescriptionTextView.setText(mBadge.getDescription());
+        mProofTextView.setText(mBadge.getProof());
+
+        setColors();
 
         Log.d("height", ""+mCategoryLabel.getHeight());
 //        mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
@@ -123,4 +130,12 @@ public class BadgeDetailFragment extends Fragment {
 //            startActivity(mapIntent);
 //        }
 //    }
+
+    private void setColors() {
+        int category = mBadge.getCategory();
+        if(category == 0){
+            mNameLabel.setTextColor(ContextCompat.getColor(mContext, R.color.category0Text));
+        }
+
+    }
 }
