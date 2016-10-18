@@ -30,7 +30,7 @@ public class BadgeDetailActivity extends AppCompatActivity {
         mBadges = Parcels.unwrap(getIntent().getParcelableExtra("badges"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new BadgePagerAdapter(getSupportFragmentManager(), mBadges);
+        adapterViewPager = new BadgePagerAdapter(getSupportFragmentManager(), mBadges, this);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
         mViewPager.setPageTransformer(true, new ScaleAndFadePageTransformer());

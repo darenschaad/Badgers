@@ -12,38 +12,44 @@ import java.util.List;
 @Parcel
 public class Badge {
     String name;
-    String imageUrl;
-    String index;
-    List<String> address = new ArrayList<>();
+//    String imageUrl;
+    String comments;
+    String description;
+    String proof;
+    double index;
+    int category;
     double latitude;
     double longitude;
-    double rating;
-    List<String> tags = new ArrayList<>();
+    double pushId;
+//    List<String> tags = new ArrayList<>();
 
     public Badge() {}
 
-    public Badge(String name, String imageUrl, String index, ArrayList<String> address, double latitude, double longitude, double rating, ArrayList<String> tags){
+    public Badge(String name, String comments, String description, String proof,double index, int category, double latitude, double longitude, double pushId){
         this.name = name;
-        this.imageUrl = imageUrl;
+//        this.imageUrl = imageUrl;
+        this.comments = comments;
+        this.description = description;
+        this.proof = proof;
         this.index = index;
-        this.address = address;
+        this.category = category;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.rating = rating;
-        this.tags = tags;
+        this.pushId = pushId;
+//        this.tags = tags;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+//    public String getImageUrl() {
+//        return imageUrl;
+//    }
 
-    public List<String> getAddress() { return address; }
+    public int getCategory() { return category; }
 
-    public String getIndex() {
+    public double getIndex() {
         return index;
     }
 
@@ -55,11 +61,15 @@ public class Badge {
         return longitude;
     }
 
-    public double getRating() {
-        return rating;
-    }
+//    public List<String> getTags() {
+//        return tags;
+//    }
 
-    public List<String> getTags() {
-        return tags;
-    }
+    public double getPushId() { return pushId; }
+
+    public String getComments() { return comments; }
+
+    public String getDescription() { return description; }
+
+    public String getProof() { return proof; }
 }

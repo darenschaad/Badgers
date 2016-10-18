@@ -1,5 +1,6 @@
 package com.epicodus.badgers.adapters;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,15 +16,17 @@ import java.util.ArrayList;
 
 public class BadgePagerAdapter  extends FragmentPagerAdapter{
     private ArrayList<Badge> mBadges;
+    private Context mContext;
 
-    public BadgePagerAdapter(FragmentManager fm, ArrayList<Badge> badges) {
+    public BadgePagerAdapter(FragmentManager fm, ArrayList<Badge> badges, Context context) {
         super(fm);
         mBadges = badges;
+        mContext = context;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return BadgeDetailFragment.newInstance(mBadges.get(position));
+        return BadgeDetailFragment.newInstance(mBadges.get(position), mContext);
     }
 
     @Override

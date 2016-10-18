@@ -55,6 +55,7 @@ public class AllBadgeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
+                    Log.d("testBadge", badgeSnapShot.getValue().toString());
                     Badge badge = badgeSnapShot.getValue(Badge.class);
                     mBadges.add(badge);
                 }
