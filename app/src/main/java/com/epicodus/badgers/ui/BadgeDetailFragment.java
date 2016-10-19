@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
@@ -28,6 +29,9 @@ import com.squareup.picasso.Picasso;
 import org.parceler.Parcels;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,12 +49,18 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
     @BindView(R.id.proofTextView) TextView mProofTextView;
     @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
+    @BindView(R.id.backgroundLayout) LinearLayout mBackgroundLayout;
+    @BindView(R.id.backgroundLayout2) LinearLayout mBackgroundLayout2;
 
     private Badge mBadge;
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     private static Context mContext;
     int height;
+
+    Integer[] categories = {0,100,200,300,400,500,600,700,800,900};
+    int[] categoryTextColors = {R.color.category0Text, R.color.category100Text,R.color.category200Text, R.color.category300Text, R.color.category400Text, R.color.category500Text, R.color.category600Text, R.color.category700Text, R.color.category800Text, R.color.category900Text};
+    int[] categoryColors = {R.color.category0Primary, R.color.category100Primary, R.color.category200Primary, R.color.category300Primary, R.color.category400Primary, R.color.category500Primary, R.color.category600Primary, R.color.category700Primary, R.color.category800Primary, R.color.category900Primary};
 
 
 
@@ -133,9 +143,22 @@ public class BadgeDetailFragment extends Fragment {
 
     private void setColors() {
         int category = mBadge.getCategory();
-        if(category == 0){
-            mNameLabel.setTextColor(ContextCompat.getColor(mContext, R.color.category0Text));
-        }
+        Log.d("category", category +"");
+        int categoryIndex = Arrays.asList(categories).indexOf(category);
+        Log.d("index", Arrays.asList(categories).get(0).toString()+"");
+        int categoryTextColor = categoryTextColors[categoryIndex];
+        int categoryColor = categoryColors[categoryIndex];
+        mNameLabel.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mIndexLabel.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        setMaincolor(categoryColor);
 
+    }
+
+    private void setMaincolor(int categoryColor) {
+        View[] backgroundViews = {mBackgroundLayout, mBackgroundLayout2};
+        for (int i=0 ; i<backgroundViews.length ; i++){
+            Log.d("background", backgroundViews[i] +"");
+            backgroundViews[i].setBackgroundColor(ContextCompat.getColor(mContext, categoryColor));
+        }
     }
 }

@@ -11,7 +11,8 @@
         android:layout_height="match_parent"
         android:weightSum="1"
         android:background="@color/colorPrimary"
-        android:paddingLeft="25dp">
+        android:paddingLeft="25dp"
+        android:id="@+id/backgroundLayout">
 
         <LinearLayout
             android:orientation="vertical"
@@ -41,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
-            android:layout_weight="0.9">
+            android:layout_weight="0.9"
+            android:id="@+id/backgroundLayout2">
 
             <RelativeLayout
                 android:layout_width="200dp"
