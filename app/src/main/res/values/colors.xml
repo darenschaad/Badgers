@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorPrimaryLight">#FFCCBC</color>
-    <color name="colorTextIcons">#ffffff</color>
-    <color name="colorAccent">#009688</color>
-    <color name="colorPrimaryText">#212121</color>
-    <color name="colorSecondaryText">#727272</color>
+    <color name="colorPrimary">#D8D8D8</color>
+    <color name="colorPrimaryDark">#989da7</color>
+    <color name="colorPrimaryLight">#F4F4F4</color>
+    <color name="colorTextIcons">#4C4C4C</color>
+    <color name="colorAccent">#BDB598</color>
+    <color name="colorPrimaryText">#373737</color>
+    <color name="colorSecondaryText">#4C4C4C</color>
     <color name="colorDivider">#B6B6B6</color>
-    <color name="category0Primary">#ccf2ff</color>
-    <color name="category0Text">#1a53ff</color>
-    <color name="category100Primary">#ccf2ff</color>
-    <color name="category100Text">#1a53ff</color>
-    <color name="category200Primary">#ccf2ff</color>
-    <color name="category200Text">#1a53ff</color>
-    <color name="category300Primary">#ccf2ff</color>
-    <color name="category300Text">#1a53ff</color>
-    <color name="category400Primary">#ccf2ff</color>
-    <color name="category400Text">#1a53ff</color>
-    <color name="category500Primary">#ccf2ff</color>
-    <color name="category500Text">#1a53ff</color>
-    <color name="category600Primary">#ccf2ff</color>
-    <color name="category600Text">#1a53ff</color>
-    <color name="category700Primary">#ccf2ff</color>
-    <color name="category700Text">#1a53ff</color>
-    <color name="category800Primary">#ccf2ff</color>
-    <color name="category800Text">#1a53ff</color>
-    <color name="category900Primary">#ccf2ff</color>
-    <color name="category900Text">#1a53ff</color>
+
+    <color name="category0Primary">#989DA7</color>
+    <color name="category0Text">#4C4C4C</color>
+    <color name="category100Primary">#DCF0FF</color>
+    <color name="category100Text">#0079A5</color>
+    <color name="category200Primary">#D0C0D6</color>
+    <color name="category200Text">#66008D</color>
+    <color name="category300Primary">#CEDFB0</color>
+    <color name="category300Text">#4D782D</color>
+    <color name="category400Primary">#EEC99A</color>
+    <color name="category400Text">#C97100</color>
+    <color name="category500Primary">#9EBAAC</color>
+    <color name="category500Text">#25895A</color>
+    <color name="category600Primary">#B5B5CA</color>
+    <color name="category600Text">#000073</color>
+    <color name="category700Primary">#FDE192</color>
+    <color name="category700Text">#988967</color>
+    <color name="category700TextSeondary">#F7B517</color>
+    <color name="category800Primary">#DBC2CC</color>
+    <color name="category800Text">#76193C</color>
+    <color name="category900Primary">#D8C2A9</color>
+    <color name="category900Text">#985721</color>
 
 
 </resources>

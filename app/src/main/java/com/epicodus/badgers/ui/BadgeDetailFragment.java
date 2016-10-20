@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
@@ -46,11 +47,30 @@ public class BadgeDetailFragment extends Fragment {
 //    @BindView(R.id.tagsTextView) TextView mTagsLabel;
     @BindView(R.id.indexTextView) TextView mIndexLabel;
     @BindView(R.id.categoryTextView) TextView mCategoryLabel;
+    @BindView(R.id.myBadgeTextView) TextView mMyBadgeTextView;
+    @BindView(R.id.activityTextView) TextView mActivityTextView;
+    @BindView(R.id.deweyClassTextView) TextView mDewyClassTextView;
+    @BindView(R.id.toDoTextView) TextView mToDoTextView;
     @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
+    @BindView(R.id.proofWordTextView) TextView mProofWordTextView;
     @BindView(R.id.proofTextView) TextView mProofTextView;
+
+
     @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
     @BindView(R.id.backgroundLayout) LinearLayout mBackgroundLayout;
     @BindView(R.id.backgroundLayout2) LinearLayout mBackgroundLayout2;
+    @BindView(R.id.divider1) View mView1;
+    @BindView(R.id.divider2) View mView2;
+    @BindView(R.id.divider3) View mView3;
+    @BindView(R.id.divider4) View mView4;
+    @BindView(R.id.divider5) View mView5;
+    @BindView(R.id.divider6) View mView6;
+    @BindView(R.id.divider7) View mView7;
+    @BindView(R.id.divider8) View mView8;
+    @BindView(R.id.divider9) View mView9;
+    @BindView(R.id.qualificationTableRow) TableRow mQualificationTableRow;
+
+
 
     private Badge mBadge;
     private static final int MAX_WIDTH = 400;
@@ -61,6 +81,7 @@ public class BadgeDetailFragment extends Fragment {
     Integer[] categories = {0,100,200,300,400,500,600,700,800,900};
     int[] categoryTextColors = {R.color.category0Text, R.color.category100Text,R.color.category200Text, R.color.category300Text, R.color.category400Text, R.color.category500Text, R.color.category600Text, R.color.category700Text, R.color.category800Text, R.color.category900Text};
     int[] categoryColors = {R.color.category0Primary, R.color.category100Primary, R.color.category200Primary, R.color.category300Primary, R.color.category400Primary, R.color.category500Primary, R.color.category600Primary, R.color.category700Primary, R.color.category800Primary, R.color.category900Primary};
+    String[] categoryText = {"000 - GENERAL KNOWLEDGE", "100 - PHILOSOPHY & PSYCHOLOGY", "200 - RELIGION", "300 - SOCIAL SCIENCE", "400 - LANGUAGES", "500 - SCIENCE", "600 - TECHNOLOGY", "700 - ARTS & RECREATION", "800 - LITERATURE", "900 - HISTORY & GEOGRAPHY"};
 
 
 
@@ -72,7 +93,6 @@ public class BadgeDetailFragment extends Fragment {
         badgeDetailFragment.setArguments(args);
         mContext = context;
         return badgeDetailFragment;
-
     }
 
     @Override
@@ -83,7 +103,6 @@ public class BadgeDetailFragment extends Fragment {
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int width = size.x;
         height = size.y;
     }
 
@@ -108,18 +127,13 @@ public class BadgeDetailFragment extends Fragment {
 
         mNameLabel.setText(mBadge.getName());
         mIndexLabel.setText(Double.toString(mBadge.getIndex()));
-        mCategoryLabel.setText(String.valueOf(mBadge.getCategory()));
-//        mCategoryLabel.setText(String.valueOf(mBadge.getCategory()));
-//        mCategoryLabel.setRotation(-90);
         ViewGroup.LayoutParams params = mCategoryLabel.getLayoutParams();
         params.width = height;
         mCategoryLabel.setLayoutParams(params);
         mDescriptionTextView.setText(mBadge.getDescription());
         mProofTextView.setText(mBadge.getProof());
 
-        setColors();
-
-        Log.d("height", ""+mCategoryLabel.getHeight());
+        setColorsAndCategoryText();
 //        mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
         return view;
     }
@@ -141,24 +155,40 @@ public class BadgeDetailFragment extends Fragment {
 //        }
 //    }
 
-    private void setColors() {
+    private void setColorsAndCategoryText() {
         int category = mBadge.getCategory();
-        Log.d("category", category +"");
         int categoryIndex = Arrays.asList(categories).indexOf(category);
-        Log.d("index", Arrays.asList(categories).get(0).toString()+"");
         int categoryTextColor = categoryTextColors[categoryIndex];
         int categoryColor = categoryColors[categoryIndex];
-        mNameLabel.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
-        mIndexLabel.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mCategoryLabel.setText(categoryText[categoryIndex]);
         setMaincolor(categoryColor);
+        setViewDividerColor(categoryTextColor);
+        setTextViewColor(categoryTextColor);
+        if (category == 700){
+            mCategoryLabel.setTextColor(ContextCompat.getColor(mContext, R.color.category700TextSeondary));
+            mMyBadgeTextView.setTextColor(ContextCompat.getColor(mContext, R.color.category700TextSeondary));
+        }
 
     }
 
     private void setMaincolor(int categoryColor) {
         View[] backgroundViews = {mBackgroundLayout, mBackgroundLayout2};
         for (int i=0 ; i<backgroundViews.length ; i++){
-            Log.d("background", backgroundViews[i] +"");
             backgroundViews[i].setBackgroundColor(ContextCompat.getColor(mContext, categoryColor));
+        }
+    }
+
+    private void setTextViewColor(int categoryTextColor) {
+        TextView[] textViews = {mNameLabel, mIndexLabel, mActivityTextView, mDewyClassTextView, mToDoTextView, mDescriptionTextView, mProofWordTextView, mProofTextView, mCategoryLabel, mMyBadgeTextView};
+        for (int i=0 ; i<textViews.length ; i++){
+            textViews[i].setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        }
+    }
+
+    private void setViewDividerColor(int categoryTextColor) {
+        View[] dividerViews = {mView1, mView2, mView3, mView4, mView5, mView6, mView7, mView8, mView9, mQualificationTableRow};
+        for (int i=0 ; i<dividerViews.length ; i++){
+            dividerViews[i].setBackgroundColor(ContextCompat.getColor(mContext, categoryTextColor));
         }
     }
 }
