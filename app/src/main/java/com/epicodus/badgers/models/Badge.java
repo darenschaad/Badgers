@@ -12,7 +12,7 @@ import java.util.List;
 @Parcel
 public class Badge {
     String name;
-//    String imageUrl;
+    String imageUrl;
     String comments;
     String description;
     String proof;
@@ -25,9 +25,9 @@ public class Badge {
 
     public Badge() {}
 
-    public Badge(String name, String comments, String description, String proof,double index, int category, double latitude, double longitude, double pushId){
+    public Badge(String name, String imageUrl, String comments, String description, String proof,double index, int category, double latitude, double longitude, double pushId){
         this.name = name;
-//        this.imageUrl = imageUrl;
+        this.imageUrl = imageUrl;
         this.comments = comments;
         this.description = description;
         this.proof = proof;
@@ -43,9 +43,9 @@ public class Badge {
         return name;
     }
 
-//    public String getImageUrl() {
-//        return imageUrl;
-//    }
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
     public int getCategory() { return category; }
 

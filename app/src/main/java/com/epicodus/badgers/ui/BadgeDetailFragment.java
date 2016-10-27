@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -55,8 +56,9 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.proofWordTextView) TextView mProofWordTextView;
     @BindView(R.id.proofTextView) TextView mProofTextView;
 
-
-    @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
+//    @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
+    @BindView(R.id.imageLayout) LinearLayout mImageLayout;
+//    @BindView(R.id.descriptionLayout) LinearLayout mDescriptionLayout;
     @BindView(R.id.backgroundLayout) LinearLayout mBackgroundLayout;
     @BindView(R.id.backgroundLayout2) LinearLayout mBackgroundLayout2;
     @BindView(R.id.divider1) View mView1;
@@ -70,20 +72,17 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.divider9) View mView9;
     @BindView(R.id.qualificationTableRow) TableRow mQualificationTableRow;
 
-
-
     private Badge mBadge;
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     private static Context mContext;
     int height;
+    int width;
 
     Integer[] categories = {0,100,200,300,400,500,600,700,800,900};
     int[] categoryTextColors = {R.color.category0Text, R.color.category100Text,R.color.category200Text, R.color.category300Text, R.color.category400Text, R.color.category500Text, R.color.category600Text, R.color.category700Text, R.color.category800Text, R.color.category900Text};
     int[] categoryColors = {R.color.category0Primary, R.color.category100Primary, R.color.category200Primary, R.color.category300Primary, R.color.category400Primary, R.color.category500Primary, R.color.category600Primary, R.color.category700Primary, R.color.category800Primary, R.color.category900Primary};
     String[] categoryText = {"000 - GENERAL KNOWLEDGE", "100 - PHILOSOPHY & PSYCHOLOGY", "200 - RELIGION", "300 - SOCIAL SCIENCE", "400 - LANGUAGES", "500 - SCIENCE", "600 - TECHNOLOGY", "700 - ARTS & RECREATION", "800 - LITERATURE", "900 - HISTORY & GEOGRAPHY"};
-
-
 
     public static BadgeDetailFragment newInstance(Badge badge, Context context) {
         // Required empty public constructor
@@ -104,26 +103,32 @@ public class BadgeDetailFragment extends Fragment {
         Point size = new Point();
         display.getSize(size);
         height = size.y;
+        width = size.x;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_badge_detail, container, false);
         ButterKnife.bind(this, view);
-
 //        mAddressLabel.setOnClickListener(this);
-//        if (!mBadge.getImageUrl().contains("http")) {
-//            try {
-//                Bitmap imageBitmap = decodeFromFirebaseBase64(mBadge.getImageUrl());
-//                mImageLabel.setImageBitmap(imageBitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            Picasso.with(view.getContext()).load(mBadge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mImageLabel);
-//
-//        }
+        Picasso.with(mContext).load(R.drawable.icon).resize(width/4,width/4).centerCrop().into(mImageLabel);
+        if (!mBadge.getImageUrl().contains("http:") && !mBadge.getImageUrl().contains("https:")) {
+            try {
+                Bitmap imageBitmap = decodeFromFirebaseBase64(mBadge.getImageUrl());
+                mImageLabel.setImageBitmap(imageBitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (mBadge.getImageUrl() != null) {
+            Picasso.with(view.getContext()).load(mBadge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mImageLabel);
+        }
+        try {
+            Log.d("got here", mBadge.getImageUrl());
+            Bitmap imageBitmap = decodeFromFirebaseBase64(mBadge.getImageUrl());
+            mImageLabel.setImageBitmap(imageBitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         mNameLabel.setText(mBadge.getName());
         mIndexLabel.setText(Double.toString(mBadge.getIndex()));
@@ -133,7 +138,20 @@ public class BadgeDetailFragment extends Fragment {
         mDescriptionTextView.setText(mBadge.getDescription());
         mProofTextView.setText(mBadge.getProof());
 
+
+        ViewGroup.LayoutParams params1 = mImageLayout.getLayoutParams();
+        params1.height = height/4;
+        mImageLayout.setLayoutParams(params1);
+
+        ViewGroup.LayoutParams params2 = mImageLabel.getLayoutParams();
+        params2.height = width/4;
+        params2.width = width/4;
+        mImageLabel.setLayoutParams(params2);
+
         setColorsAndCategoryText();
+
+        Typeface sansSerifBold = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Sans-Serif-Narrow-Bold.ttf");
+        mCategoryLabel.setTypeface(sansSerifBold);
 //        mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
         return view;
     }
@@ -168,7 +186,6 @@ public class BadgeDetailFragment extends Fragment {
             mCategoryLabel.setTextColor(ContextCompat.getColor(mContext, R.color.category700TextSeondary));
             mMyBadgeTextView.setTextColor(ContextCompat.getColor(mContext, R.color.category700TextSeondary));
         }
-
     }
 
     private void setMaincolor(int categoryColor) {

@@ -48,6 +48,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:id="@+id/searchEditText"
-        android:hint="Enter Keywoards to Search"
+        android:hint="Enter Keywords to Search"
         android:textAlignment="center" />
 </RelativeLayout>

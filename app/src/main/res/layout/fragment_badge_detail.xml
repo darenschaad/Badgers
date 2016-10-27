@@ -20,10 +20,9 @@
             android:layout_width="55dp"
             android:layout_height="match_parent"
             android:layout_weight="0.1"
-            android:background="@color/colorTextIcons"
             android:layout_marginBottom="10dp"
-
-            android:gravity="center">
+            android:gravity="center"
+            android:background="@android:color/white">
 
             <TextView
                 android:id="@+id/categoryTextView"
@@ -45,36 +44,39 @@
             android:layout_weight="0.9"
             android:id="@+id/backgroundLayout2">
 
-            <RelativeLayout
-                android:layout_width="200dp"
-                android:layout_height="260dp"
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="25dp">
+                android:id="@+id/imageLayout">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="30dp"
                     android:id="@+id/myBadgeTextView"
                     android:layout_above="@+id/badgeImageView"
                     android:text="MY BADGE"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="15dp"
                     android:gravity="center_horizontal"
-                    android:textSize="26sp" />
+                    android:textSize="22sp" />
 
-
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:id="@+id/badgeImageView"
-                    android:src="@drawable/badger"
-                    android:scaleType="centerCrop" />
-
-
-
-
-            </RelativeLayout>
+                    android:src="@drawable/icon"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center" />
+                </RelativeLayout>
+            </LinearLayout>
 
 
             <!--<RelativeLayout-->
@@ -121,9 +123,7 @@
                     <!--android:textStyle="italic" />-->
             <!--</RelativeLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+
 
 
 
@@ -131,6 +131,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:layout_alignParentTop="true"
@@ -198,7 +199,6 @@
                                 android:id="@+id/indexTextView"
                                 android:text="Index" />
 
-
                         </TableRow>
                         <View
                             android:layout_width="match_parent"
@@ -206,6 +206,11 @@
                             android:background="@android:color/black"
                             android:id="@+id/divider4"/>
                     </TableLayout>
+
+                    <ScrollView android:id="@+id/ScrollView01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -256,6 +261,7 @@
                                 android:text="To Do:"
                                 android:textStyle="bold"
                                 android:paddingLeft="20dp"
+                                android:paddingRight="3dp"
                                 android:gravity="right"
                                 android:id="@+id/toDoTextView"/>
                             <View android:layout_width="1dp"
@@ -286,6 +292,7 @@
                                 android:background="@android:color/white"
                                 android:textStyle="bold"
                                 android:gravity="right"
+                                android:paddingRight="3dp"
                                 android:id="@+id/proofWordTextView"/>
                             <View android:layout_width="1dp"
                                 android:background="@android:color/background_dark"
@@ -300,39 +307,12 @@
 
                         </TableRow>
                     </TableLayout>
+                    </ScrollView>
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Save Badge"
-                    android:id="@+id/saveBadgeButton"
-                    android:background="@color/colorAccent"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Address for badge"
-                    android:drawableLeft="@drawable/ic_map_white_24dp"
-                    android:drawablePadding="4dp"
-                    android:id="@+id/addressTextView"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="bottom"
-                    android:layout_above="@+id/saveBadgeButton"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="41dp"
-                    android:layout_marginStart="41dp" />
-            </RelativeLayout>
-        </LinearLayout>
+            </LinearLayout>
+
 
     </LinearLayout>
 
