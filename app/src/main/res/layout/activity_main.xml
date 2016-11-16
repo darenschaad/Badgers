@@ -17,18 +17,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/badger"
+        app:srcCompat="@drawable/icon2"
         android:id="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="View All Badges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/viewAllButton" />
 
     <Button
         android:text="Search Badges"
@@ -50,4 +42,13 @@
         android:id="@+id/searchEditText"
         android:hint="Enter Keywords to Search"
         android:textAlignment="center" />
+
+    <Button
+        android:text="View All Badges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewAllButton"
+        android:layout_below="@+id/searchButton"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

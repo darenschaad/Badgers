@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
+
 import com.epicodus.badgers.models.Badge;
 import com.epicodus.badgers.ui.BadgeDetailActivity;
 import com.squareup.picasso.Picasso;
@@ -33,7 +34,7 @@ import butterknife.ButterKnife;
 public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     @BindView(R.id.badgeImageView) ImageView mBadgeImageView;
     @BindView(R.id.badgeNameTextView) TextView mNameTextView;
-//    @BindView(R.id.categoryTextView) TextView mCategoryTextView;
+    @BindView(R.id.ratingTextView) TextView mRatingTextView;
     @BindView(R.id.tagTextView) TextView mTagTextView;
     @BindView(R.id.listBackground) LinearLayout mListBackground;
 
@@ -56,6 +57,7 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
     }
 
     public void bindBadge(Badge badge) {
+        Picasso.with(itemView.getContext()).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
 //        if (!badge.getImageUrl().contains("http")) {
 //            try {
 //                Bitmap imageBitmap = decodeFromFirebaseBase64(badge.getImageUrl());
@@ -74,8 +76,21 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         int categoryIndex = Arrays.asList(categories).indexOf(category);
         int categoryTextColor = categoryTextColors[categoryIndex];
         int categoryColor = categoryColors[categoryIndex];
+        mRatingTextView.setText(badge.getIndex().substring(1));
         mNameTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mTagTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mRatingTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         mListBackground.setBackgroundColor(ContextCompat.getColor(mContext,categoryColor));
+//        if (!badge.getImageUrl().contains("http:") && !badge.getImageUrl().contains("https:")) {
+//            try {
+//                Bitmap imageBitmap = decodeFromFirebaseBase64(badge.getImageUrl());
+//                mBadgeImageView.setImageBitmap(imageBitmap);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        } else if (!badge.getImageUrl().equals("")) {
+//            Picasso.with(mContext).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
+//        }
     }
 
 

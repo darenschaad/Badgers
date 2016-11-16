@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.epicodus.badgers.R;
 
+
 import com.epicodus.badgers.models.Badge;
 import com.epicodus.badgers.ui.BadgeDetailActivity;
 import com.squareup.picasso.Picasso;

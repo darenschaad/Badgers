@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
@@ -24,8 +26,15 @@ import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
+import com.epicodus.badgers.adapters.BadgeListAdapter;
 import com.epicodus.badgers.models.Badge;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -73,6 +82,10 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.qualificationTableRow) TableRow mQualificationTableRow;
 
     private Badge mBadge;
+    private String mImageUrl;
+    private DatabaseReference mRef;
+    private ValueEventListener mRefListener;
+    public String mImgage;
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     private static Context mContext;
@@ -98,6 +111,22 @@ public class BadgeDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBadge = Parcels.unwrap(getArguments().getParcelable("badge"));
+        mRef  = FirebaseDatabase.getInstance().getReference().child("images").child(Integer.toString(mBadge.getPushId()));
+        mRefListener = mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot imageSnapShot : dataSnapshot.getChildren()) {
+                    String image = imageSnapShot.getValue(String.class);
+                    mBadge.setImageUrl(image);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
@@ -111,32 +140,24 @@ public class BadgeDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_badge_detail, container, false);
         ButterKnife.bind(this, view);
 //        mAddressLabel.setOnClickListener(this);
-        Picasso.with(mContext).load(R.drawable.icon).resize(width/4,width/4).centerCrop().into(mImageLabel);
-        if (!mBadge.getImageUrl().contains("http:") && !mBadge.getImageUrl().contains("https:")) {
-            try {
-                Bitmap imageBitmap = decodeFromFirebaseBase64(mBadge.getImageUrl());
-                mImageLabel.setImageBitmap(imageBitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (mBadge.getImageUrl() != null) {
-            Picasso.with(view.getContext()).load(mBadge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mImageLabel);
-        }
-        try {
-            Log.d("got here", mBadge.getImageUrl());
-            Bitmap imageBitmap = decodeFromFirebaseBase64(mBadge.getImageUrl());
-            mImageLabel.setImageBitmap(imageBitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Picasso.with(mContext).load(mBadge.getImageUrl()).resize(width/4,width/4).centerCrop().into(mImageLabel);
+
+
+
 
         mNameLabel.setText(mBadge.getName());
-        mIndexLabel.setText(Double.toString(mBadge.getIndex()));
+        mIndexLabel.setText(mBadge.getIndex().substring(1));
         ViewGroup.LayoutParams params = mCategoryLabel.getLayoutParams();
         params.width = height;
         mCategoryLabel.setLayoutParams(params);
-        mDescriptionTextView.setText(mBadge.getDescription());
-        mProofTextView.setText(mBadge.getProof());
+        if (mBadge.getComments().equals("")) {
+            mDescriptionTextView.setText(mBadge.getDescription() + "\n");
+        } else {
+            String concat = (mBadge.getDescription() + "\n\n" + mBadge.getComments() + "\n");
+            mDescriptionTextView.setText(concat);
+        }
+
+        mProofTextView.setText(mBadge.getProof() + "\n");
 
 
         ViewGroup.LayoutParams params1 = mImageLayout.getLayoutParams();
@@ -156,10 +177,6 @@ public class BadgeDetailFragment extends Fragment {
         return view;
     }
 
-    public static Bitmap decodeFromFirebaseBase64(String image) throws IOException {
-        byte[] decodedByteArray = android.util.Base64.decode(image, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
-    }
 
 //    @Override
 //    public void onClick(View v) {
