@@ -41,6 +41,7 @@ import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -64,6 +65,12 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
     @BindView(R.id.proofWordTextView) TextView mProofWordTextView;
     @BindView(R.id.proofTextView) TextView mProofTextView;
+    @BindView(R.id.creatorWordTextView) TextView mCreatorWordTextView;
+    @BindView(R.id.creatorTextView) TextView mCreatorTextView;
+    @BindView(R.id.dateWordTextView) TextView mDateWordTextView;
+    @BindView(R.id.dateTextView) TextView mDateTextView;
+    @BindView(R.id.badgeQualification) TextView mBadgeQualification;
+
 
 //    @BindView(R.id.saveBadgeButton) Button mSaveBadgeButton;
     @BindView(R.id.imageLayout) LinearLayout mImageLayout;
@@ -79,6 +86,10 @@ public class BadgeDetailFragment extends Fragment {
     @BindView(R.id.divider7) View mView7;
     @BindView(R.id.divider8) View mView8;
     @BindView(R.id.divider9) View mView9;
+    @BindView(R.id.divider10) View mView10;
+    @BindView(R.id.divider11) View mView11;
+    @BindView(R.id.divider12) View mView12;
+    @BindView(R.id.divider13) View mView13;
     @BindView(R.id.qualificationTableRow) TableRow mQualificationTableRow;
 
     private Badge mBadge;
@@ -89,8 +100,8 @@ public class BadgeDetailFragment extends Fragment {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
     private static Context mContext;
-    int height;
-    int width;
+    double height;
+    double width;
 
     Integer[] categories = {0,100,200,300,400,500,600,700,800,900};
     int[] categoryTextColors = {R.color.category0Text, R.color.category100Text,R.color.category200Text, R.color.category300Text, R.color.category400Text, R.color.category500Text, R.color.category600Text, R.color.category700Text, R.color.category800Text, R.color.category900Text};
@@ -140,15 +151,17 @@ public class BadgeDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_badge_detail, container, false);
         ButterKnife.bind(this, view);
 //        mAddressLabel.setOnClickListener(this);
-        Picasso.with(mContext).load(mBadge.getImageUrl()).resize(width/4,width/4).centerCrop().into(mImageLabel);
+        Picasso.with(mContext).load(mBadge.getImageUrl()).resize((int) width/4,(int) width/4).centerCrop().into(mImageLabel);
 
 
 
 
         mNameLabel.setText(mBadge.getName());
         mIndexLabel.setText(mBadge.getIndex().substring(1));
+        mCreatorTextView.setText(mBadge.getCreator() + "\n");
+        mDateTextView.setText(mBadge.getDate() + "\n");
         ViewGroup.LayoutParams params = mCategoryLabel.getLayoutParams();
-        params.width = height;
+        params.width = (int) height;
         mCategoryLabel.setLayoutParams(params);
         if (mBadge.getComments().equals("")) {
             mDescriptionTextView.setText(mBadge.getDescription() + "\n");
@@ -161,18 +174,33 @@ public class BadgeDetailFragment extends Fragment {
 
 
         ViewGroup.LayoutParams params1 = mImageLayout.getLayoutParams();
-        params1.height = height/4;
+        params1.height = (int) (height/3.4);
         mImageLayout.setLayoutParams(params1);
 
         ViewGroup.LayoutParams params2 = mImageLabel.getLayoutParams();
-        params2.height = width/4;
-        params2.width = width/4;
+        params2.height = (int) width/3;
+        params2.width = (int) width/3;
         mImageLabel.setLayoutParams(params2);
 
         setColorsAndCategoryText();
 
-        Typeface sansSerifBold = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Sans-Serif-Narrow-Bold.ttf");
-        mCategoryLabel.setTypeface(sansSerifBold);
+        Typeface futura = Typeface.createFromAsset(getActivity().getAssets(),"fonts/futura-condensed-normal.ttf");
+        Typeface bebas = Typeface.createFromAsset(getActivity().getAssets(),"fonts/bebas.otf");
+        mCategoryLabel.setTypeface(bebas);
+        mMyBadgeTextView.setTypeface(bebas);
+        mToDoTextView.setTypeface(futura);
+        mDescriptionTextView.setTypeface(futura);
+        mProofWordTextView.setTypeface(futura);
+        mProofTextView.setTypeface(futura);
+        mCreatorWordTextView.setTypeface(futura);
+        mCreatorTextView.setTypeface(futura);
+        mDateWordTextView.setTypeface(futura);
+        mDateTextView.setTypeface(futura);
+        mBadgeQualification.setTypeface(bebas);
+        mDewyClassTextView.setTypeface(bebas);
+        mIndexLabel.setTypeface(bebas);
+        mActivityTextView.setTypeface(bebas);
+        mNameLabel.setTypeface(bebas);
 //        mTagsLabel.setText(android.text.TextUtils.join(", ", mBadge.getTags()));
         return view;
     }
@@ -213,14 +241,14 @@ public class BadgeDetailFragment extends Fragment {
     }
 
     private void setTextViewColor(int categoryTextColor) {
-        TextView[] textViews = {mNameLabel, mIndexLabel, mActivityTextView, mDewyClassTextView, mToDoTextView, mDescriptionTextView, mProofWordTextView, mProofTextView, mCategoryLabel, mMyBadgeTextView};
+        TextView[] textViews = {mNameLabel, mIndexLabel, mActivityTextView, mDewyClassTextView, mToDoTextView, mDescriptionTextView, mProofWordTextView, mProofTextView, mCategoryLabel, mMyBadgeTextView, mCreatorWordTextView, mCreatorTextView, mDateWordTextView, mDateTextView};
         for (int i=0 ; i<textViews.length ; i++){
             textViews[i].setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         }
     }
 
     private void setViewDividerColor(int categoryTextColor) {
-        View[] dividerViews = {mView1, mView2, mView3, mView4, mView5, mView6, mView7, mView8, mView9, mQualificationTableRow};
+        View[] dividerViews = {mView1, mView2, mView3, mView4, mView5, mView6, mView7, mView8, mView9, mView10, mView11, mView12, mView13, mQualificationTableRow};
         for (int i=0 ; i<dividerViews.length ; i++){
             dividerViews[i].setBackgroundColor(ContextCompat.getColor(mContext, categoryTextColor));
         }

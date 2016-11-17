@@ -17,6 +17,8 @@ public class Badge {
     String description;
     String proof;
     String index;
+    String creator;
+    String date;
     int category;
     double latitude;
     double longitude;
@@ -27,13 +29,15 @@ public class Badge {
 
 
 
-    public Badge(String name, String imageUrl, String comments, String description, String proof, String index, int category, double latitude, double longitude, int pushId){
+    public Badge(String name, String imageUrl, String comments, String description, String proof, String index, String creator, String date, int category, double latitude, double longitude, int pushId){
         this.name = name;
         this.imageUrl = imageUrl;
         this.comments = comments;
         this.description = description;
         this.proof = proof;
         this.index = index;
+        this.creator = creator;
+        this.date = date;
         this.category = category;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -55,6 +59,10 @@ public class Badge {
     public String getIndex() {
         return index;
     }
+
+    public String getDate() { return date; }
+
+    public String getCreator() { return creator; }
 
     public double getLatitude() {
         return latitude;
