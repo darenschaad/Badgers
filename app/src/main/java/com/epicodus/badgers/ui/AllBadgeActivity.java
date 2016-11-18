@@ -41,11 +41,14 @@ public class AllBadgeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_badge);
         ButterKnife.bind(this);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.filterArray, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//                R.array.filterArray, android.R.layout.simple_spinner_item);
+//// Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//// Apply the adapter to the spinner
+//        mFilterSpinner.setAdapter(adapter);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
+                R.array.filterArray, R.layout.spinner_item);
         mFilterSpinner.setAdapter(adapter);
 
         mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);

@@ -6,8 +6,18 @@
 
     <string-array name="filterArray">
         <item>All Badges</item>
-        <item>Incompleted Badges</item>
-        <item>My Completed Badges</item>
+        <item>000 - GENERAL KNOWLEDGE</item>
+        <item>100 - PHILOSOPHY &amp; PSYCHOLOGY</item>
+        <item>200 - RELIGION</item>
+        <item>300 - SOCIAL SCIENCE</item>
+        <item>400 - LANGUAGES</item>
+        <item>500 - SCIENCE</item>
+        <item>600 - TECHNOLOGY</item>
+        <item>700 - ARTS &amp; RECREATION</item>
+        <item>800 - LITERATURE</item>
+        <item>900 - HISTORY &amp; GEOGRAPHY</item>
+        <!--<item>Incompleted Badges</item>-->
+        <!--<item>My Completed Badges</item>-->
     </string-array>
 
 </resources>

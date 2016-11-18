@@ -8,12 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.badgers.ui.AllBadgeActivity">
+    tools:context="com.epicodus.badgers.ui.AllBadgeActivity"
+    android:background="@drawable/background">
 
     <Spinner
         android:id="@+id/filterSpinner"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:popupBackground="@color/category0Primary"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

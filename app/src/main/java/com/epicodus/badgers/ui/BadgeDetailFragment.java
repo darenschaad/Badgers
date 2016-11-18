@@ -172,7 +172,7 @@ public class BadgeDetailFragment extends Fragment {
 
         mProofTextView.setText(mBadge.getProof() + "\n");
 
-
+        Log.d("Device Width",Double.toString(width));
         ViewGroup.LayoutParams params1 = mImageLayout.getLayoutParams();
         params1.height = (int) (height/3.4);
         mImageLayout.setLayoutParams(params1);

@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     @BindView(R.id.badgeImageView) ImageView mBadgeImageView;
     @BindView(R.id.badgeNameTextView) TextView mNameTextView;
-    @BindView(R.id.ratingTextView) TextView mRatingTextView;
+    @BindView(R.id.deweyTextView) TextView mDeweyTextView;
     @BindView(R.id.smallDescriptionTextView) TextView mDescriptionTextView;
     @BindView(R.id.listBackground) LinearLayout mListBackground;
     @BindView(R.id.badgeListCategory) TextView mBadgeListCategory;
@@ -84,7 +84,7 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         mDescriptionTextView.setTypeface(futura);
         mBadgeListCategory.setTypeface(futura);
         mNameTextView.setTypeface(bebas);
-        mRatingTextView.setTypeface(bebas);
+        mDeweyTextView.setTypeface(bebas);
 
 //        mCategoryTextView.setText(String.valueOf(badge.getCategory()));
 //        mCategoryTextView.setRotation(-90);
@@ -94,10 +94,11 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         int categoryTextColor = categoryTextColors[categoryIndex];
         int categoryColor = categoryColors[categoryIndex];
         mBadgeListCategory.setText(categoryText[categoryIndex]);
-        mRatingTextView.setText(badge.getIndex().substring(1));
+        mDeweyTextView.setText(badge.getIndex().substring(1));
         mNameTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         mDescriptionTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
-        mRatingTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mBadgeListCategory.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
+        mDeweyTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         mListBackground.setBackgroundColor(ContextCompat.getColor(mContext,categoryColor));
 //        if (!badge.getImageUrl().contains("http:") && !badge.getImageUrl().contains("https:")) {
 //            try {

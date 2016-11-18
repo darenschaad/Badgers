@@ -11,8 +11,8 @@
         android:layout_height="match_parent"
         android:weightSum="1"
         android:background="@color/colorPrimary"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         android:paddingTop="10dp"
         android:id="@+id/backgroundLayout">
 
@@ -110,7 +110,7 @@
                                 android:textStyle="bold"
                                 android:textSize="@dimen/text_large"
                                 android:gravity="center"
-                                android:paddingRight="20dp" />
+                                android:layout_marginRight="3dp" />
                             <View android:layout_width="1dp"
                                 android:background="@android:color/background_dark"
                                 android:layout_height="match_parent"
@@ -142,7 +142,8 @@
                                 android:textStyle="bold"
                                 android:textSize="@dimen/text_medium"
                                 android:gravity="center"
-                                android:id="@+id/deweyClassTextView"/>
+                                android:id="@+id/deweyClassTextView"
+                                android:layout_marginRight="3dp" />
 
                             <View android:layout_width="1dp"
                                 android:background="@android:color/background_dark"
