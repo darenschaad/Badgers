@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,6 +48,8 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
     private Context mContext;
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
+    double height;
+    double width;
 
     Integer[] categories = {0,100,200,300,400,500,600,700,800,900};
     int[] categoryTextColors = {R.color.category0Text, R.color.category100Text,R.color.category200Text, R.color.category300Text, R.color.category400Text, R.color.category500Text, R.color.category600Text, R.color.category700Text, R.color.category800Text, R.color.category900Text};
@@ -72,13 +77,7 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
 //            Picasso.with(itemView.getContext()).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
 //        }
         mNameTextView.setText(badge.getName());
-        if (badge.getDescription().length() < 120){
-            String descrip = badge.getDescription();
-            mDescriptionTextView.setText(descrip);
-        } else {
-            String descrip = badge.getDescription().substring(0,120)  + "...";
-            mDescriptionTextView.setText(descrip);
-        }
+
         Typeface futura = Typeface.createFromAsset(mContext.getAssets(),"fonts/futura-condensed-normal.ttf");
         Typeface bebas = Typeface.createFromAsset(mContext.getAssets(),"fonts/bebas.otf");
         mDescriptionTextView.setTypeface(futura);
@@ -86,9 +85,6 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         mNameTextView.setTypeface(bebas);
         mDeweyTextView.setTypeface(bebas);
 
-//        mCategoryTextView.setText(String.valueOf(badge.getCategory()));
-//        mCategoryTextView.setRotation(-90);
-//        mTagTextView.setText(badge.getTags().get(0));
         int category = badge.getCategory();
         int categoryIndex = Arrays.asList(categories).indexOf(category);
         int categoryTextColor = categoryTextColors[categoryIndex];
@@ -100,16 +96,37 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         mBadgeListCategory.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         mDeweyTextView.setTextColor(ContextCompat.getColor(mContext, categoryTextColor));
         mListBackground.setBackgroundColor(ContextCompat.getColor(mContext,categoryColor));
-//        if (!badge.getImageUrl().contains("http:") && !badge.getImageUrl().contains("https:")) {
-//            try {
-//                Bitmap imageBitmap = decodeFromFirebaseBase64(badge.getImageUrl());
-//                mBadgeImageView.setImageBitmap(imageBitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else if (!badge.getImageUrl().equals("")) {
-//            Picasso.with(mContext).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
-//        }
+
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        height = size.y;
+        width = size.x;
+
+        if (width < 800){
+            mBadgeImageView.getLayoutParams().width = 200;
+            mBadgeImageView.getLayoutParams().height = 200;
+            mBadgeListCategory.setTextSize(13);
+            mDeweyTextView.setTextSize(13);
+            mNameTextView.setTextSize(20);
+            if (badge.getDescription().length() < 70){
+                String descrip = badge.getDescription();
+                mDescriptionTextView.setText(descrip);
+            } else {
+                String descrip = badge.getDescription().substring(0,70)  + "...";
+                mDescriptionTextView.setText(descrip);
+            }
+        } else {
+            if (badge.getDescription().length() < 100){
+                String descrip = badge.getDescription();
+                mDescriptionTextView.setText(descrip);
+            } else {
+                String descrip = badge.getDescription().substring(0,100)  + "...";
+                mDescriptionTextView.setText(descrip);
+            }
+        }
+
     }
 
 

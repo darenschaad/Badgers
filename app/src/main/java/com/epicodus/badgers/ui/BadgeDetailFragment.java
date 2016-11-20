@@ -170,6 +170,10 @@ public class BadgeDetailFragment extends Fragment {
             mDescriptionTextView.setText(concat);
         }
 
+        if (width < 800){
+            mCategoryLabel.setTextSize(45);
+        }
+
         mProofTextView.setText(mBadge.getProof() + "\n");
 
         Log.d("Device Width",Double.toString(width));
