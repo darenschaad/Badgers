@@ -2,9 +2,6 @@ package com.epicodus.badgers.models;
 
 import org.parceler.Parcel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Daren on 9/23/2016.
  */

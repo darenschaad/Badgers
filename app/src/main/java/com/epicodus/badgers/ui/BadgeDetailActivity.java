@@ -1,9 +1,9 @@
 package com.epicodus.badgers.ui;
 
-import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
 import com.epicodus.badgers.R;
 import com.epicodus.badgers.adapters.BadgePagerAdapter;
 import com.epicodus.badgers.models.Badge;

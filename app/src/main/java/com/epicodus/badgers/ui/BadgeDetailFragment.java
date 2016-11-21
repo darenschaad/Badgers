@@ -2,33 +2,23 @@ package com.epicodus.badgers.ui;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
-import com.epicodus.badgers.adapters.BadgeListAdapter;
 import com.epicodus.badgers.models.Badge;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,10 +29,6 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import butterknife.BindView;

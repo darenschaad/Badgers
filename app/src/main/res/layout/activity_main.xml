@@ -51,4 +51,12 @@
         android:layout_below="@+id/searchButton"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:text="View Categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewCategoryButton"
+        android:layout_below="@+id/viewAllButton"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -15,26 +15,26 @@
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui.SearchBadgeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.AllBadgeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.BadgeDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity"></meta-data><meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.MainActivity"></meta-data>
+                android:value=".ui.AllBadgeActivity" />
         </activity>
+        <activity android:name=".ui.CategoryActivity"></activity>
     </application>
 
 </manifest>

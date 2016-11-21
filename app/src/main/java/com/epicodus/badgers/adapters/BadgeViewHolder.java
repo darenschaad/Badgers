@@ -17,9 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
-
 import com.epicodus.badgers.models.Badge;
-import com.epicodus.badgers.ui.AllBadgeActivity;
 import com.epicodus.badgers.ui.BadgeDetailActivity;
 import com.squareup.picasso.Picasso;
 
@@ -66,16 +64,6 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public void bindBadge(Badge badge) {
         Picasso.with(itemView.getContext()).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
-//        if (!badge.getImageUrl().contains("http")) {
-//            try {
-//                Bitmap imageBitmap = decodeFromFirebaseBase64(badge.getImageUrl());
-//                mBadgeImageView.setImageBitmap(imageBitmap);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            Picasso.with(itemView.getContext()).load(badge.getImageUrl()).resize(MAX_WIDTH,MAX_HEIGHT).centerCrop().into(mBadgeImageView);
-//        }
         mNameTextView.setText(badge.getName());
 
         Typeface futura = Typeface.createFromAsset(mContext.getAssets(),"fonts/futura-condensed-normal.ttf");
@@ -127,12 +115,6 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
             }
         }
 
-    }
-
-
-    public static Bitmap decodeFromFirebaseBase64(String image) throws IOException {
-        byte[] decodedByteArray = android.util.Base64.decode(image, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
     }
 
     @Override

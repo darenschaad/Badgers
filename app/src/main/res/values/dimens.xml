@@ -9,5 +9,6 @@
     <dimen name="text_huge">14dp</dimen>
     <dimen name="text_list_small">16dp</dimen>
     <dimen name="text_list_large">26dp</dimen>
+    <dimen name="category_activity_text">14dp</dimen>
 
 </resources>

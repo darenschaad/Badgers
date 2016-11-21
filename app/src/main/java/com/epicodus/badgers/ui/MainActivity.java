@@ -1,9 +1,8 @@
 package com.epicodus.badgers.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +11,8 @@ import android.widget.Toast;
 
 import com.epicodus.badgers.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.searchEditText) EditText mSearchEditText;
     @BindView(R.id.searchButton) Button mSearchButton;
     @BindView(R.id.viewAllButton) Button mViewAllButton;
+    @BindView(R.id.viewCategoryButton) Button mViewCategoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mSearchButton = (Button) findViewById(R.id.searchButton);
         mSearchButton.setOnClickListener(this);
         mViewAllButton.setOnClickListener(this);
+        mViewCategoryButton.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.viewAllButton:
                 Intent intent1 = new Intent(MainActivity.this, AllBadgeActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.viewCategoryButton:
+                Intent intent2 = new Intent(MainActivity.this, CategoryActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
