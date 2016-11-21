@@ -5,57 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="10dp"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="10dp"
     tools:context="com.epicodus.badgers.ui.CategoryActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:id="@+id/cat000Layout">
+        android:orientation="horizontal"
+        android:id="@+id/cat01Layout">
 
         <ImageView
-            android:layout_width="60dp"
+            android:layout_width="0dp"
             android:layout_height="60dp"
-            android:id="@+id/category000ImageView"
+            android:id="@+id/cat000ImageView"
             android:src="@drawable/icon"
-            android:layout_weight="0.5"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:background="@color/category0Primary"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:textSize="@dimen/category_activity_text"
             android:layout_toRightOf="@+id/category000ImageView"
             android:text="000 \n GENERAL \n KNOWLEDGE"
-            android:gravity="center_horizontal" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_toRightOf="@+id/cat000Layout"
-        android:id="@+id/cat100Layout">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/category100ImageView"
-            android:src="@drawable/icon"
-            android:layout_weight="0.5"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/cat000TextView"
             android:layout_weight="0.5"
+            android:background="@color/category0Primary"
+            android:textColor="@color/category0Text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat100ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.5"
+            android:background="@color/category100Primary"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:textSize="@dimen/category_activity_text"
-            android:layout_toRightOf="@+id/category100ImageView"
+            android:layout_toRightOf="@+id/cat100ImageView"
             android:text="100 \n PHILOSOPHY \n PSYCHOLOGY"
-            android:gravity="center_horizontal" />
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.5"
+            android:id="@+id/cat100TextView"
+            android:background="@color/category100Primary"
+            android:textColor="@color/category100Text"
+            />
 
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.15">
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.7">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
 
 
     <!--<Button-->
