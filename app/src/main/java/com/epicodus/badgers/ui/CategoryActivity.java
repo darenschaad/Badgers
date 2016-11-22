@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +25,10 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.cat000ImageView) ImageView mCat000ImageView;
     @BindView(R.id.cat100TextView) TextView mCat100TextView;
     @BindView(R.id.cat100ImageView) ImageView mCat100ImageView;
+    @BindView(R.id.cat200TextView) TextView mCat200TextView;
+    @BindView(R.id.cat200ImageView) ImageView mCat200ImageView;
+    @BindView(R.id.cat300TextView) TextView mCat300TextView;
+    @BindView(R.id.cat300ImageView) ImageView mCat300ImageView;
 
 
     double height;
@@ -38,7 +43,11 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         mCat000TextView.setOnClickListener(this);
         mCat000ImageView.setOnClickListener(this);
         mCat100TextView.setOnClickListener(this);
-        mCat000ImageView.setOnClickListener(this);
+        mCat100ImageView.setOnClickListener(this);
+        mCat200TextView.setOnClickListener(this);
+        mCat200ImageView.setOnClickListener(this);
+        mCat300TextView.setOnClickListener(this);
+        mCat300ImageView.setOnClickListener(this);
 
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
@@ -57,6 +66,24 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         double y = Math.pow(screenHeight,2);
         double screenInches = Math.sqrt(x+y);
         Log.d("Screen width", Double.toString(screenInches));
+
+        mCat000ImageView.getLayoutParams().height = (int) height/8;
+        mCat100ImageView.getLayoutParams().height = (int) height/8;
+        mCat200ImageView.getLayoutParams().height = (int) height/8;
+        mCat300ImageView.getLayoutParams().height = (int) height/8;
+
+        mCat000TextView.setTextSize( (float) height/55);
+        mCat100TextView.setTextSize( (float) height/55);
+        mCat200TextView.setTextSize( (float) height/55);
+        mCat300TextView.setTextSize( (float) height/55);
+
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/000.png").into(mCat000ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/100.png").into(mCat100ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/200.png").into(mCat200ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/300.png").into(mCat300ImageView);
+
+
+
 
     }
 
@@ -82,6 +109,26 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 Intent intent4 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
                 intent4.putExtra("category", "100");
                 startActivity(intent4);
+                break;
+            case R.id.cat200TextView:
+                Intent intent5 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent5.putExtra("category", "200");
+                startActivity(intent5);
+                break;
+            case R.id.cat200ImageView:
+                Intent intent6 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent6.putExtra("category", "200");
+                startActivity(intent6);
+                break;
+            case R.id.cat300TextView:
+                Intent intent7 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent7.putExtra("category", "300");
+                startActivity(intent7);
+                break;
+            case R.id.cat300ImageView:
+                Intent intent8 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent8.putExtra("category", "300");
+                startActivity(intent8);
                 break;
         }
     }

@@ -4,8 +4,7 @@
     android:id="@+id/activity_category"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp"
+
     tools:context="com.epicodus.badgers.ui.CategoryActivity">
 
     <LinearLayout
@@ -21,6 +20,7 @@
             android:src="@drawable/icon"
             android:layout_weight="0.4"
             android:background="@color/category0Primary"
+            android:layout_gravity="left"
             />
         <TextView
             android:layout_width="0dp"
@@ -41,6 +41,7 @@
             android:src="@drawable/icon"
             android:layout_weight="0.4"
             android:background="@color/category100Primary"
+            android:layout_gravity="left"
             />
         <TextView
             android:layout_width="0dp"
@@ -56,117 +57,55 @@
             />
 
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="0dip"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.15"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/cat23Layout"
         android:layout_below="@+id/cat01Layout">
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="0dip"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.7"
-        android:layout_below="@+id/cat01Layout">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat200ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category0Primary"
+            android:layout_gravity="left"
             />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="0dip"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.15"
-        android:layout_below="@+id/cat01Layout">
-    </RelativeLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/category000ImageView"
+            android:text="200 \n RELIGION"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/cat200TextView"
+            android:layout_weight="0.6"
+            android:background="@color/category0Primary"
+            android:textColor="@color/category0Text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat300ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category100Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/cat100ImageView"
+            android:text="300 \n SOCIAL \n SCIENCES"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.6"
+            android:id="@+id/cat300TextView"
+            android:background="@color/category100Primary"
+            android:textColor="@color/category100Text"
+            />
 
-
-
-    <!--<Button-->
-        <!--android:text="000 - General Knowledge"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:id="@+id/button000" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button000"-->
-        <!--android:layout_alignRight="@+id/button000"-->
-        <!--android:layout_alignEnd="@+id/button000"-->
-        <!--android:id="@+id/button100" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button100"-->
-        <!--android:layout_alignRight="@+id/button100"-->
-        <!--android:layout_alignEnd="@+id/button100"-->
-        <!--android:id="@+id/button200" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button200"-->
-        <!--android:layout_alignRight="@+id/button200"-->
-        <!--android:layout_alignEnd="@+id/button200"-->
-        <!--android:id="@+id/button300" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button300"-->
-        <!--android:layout_alignRight="@+id/button300"-->
-        <!--android:layout_alignEnd="@+id/button300"-->
-        <!--android:id="@+id/button400" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button400"-->
-        <!--android:layout_alignRight="@+id/button400"-->
-        <!--android:layout_alignEnd="@+id/button400"-->
-        <!--android:id="@+id/button500" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button500"-->
-        <!--android:layout_alignRight="@+id/button500"-->
-        <!--android:layout_alignEnd="@+id/button500"-->
-        <!--android:id="@+id/button600" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button600"-->
-        <!--android:layout_alignRight="@+id/button600"-->
-        <!--android:layout_alignEnd="@+id/button600"-->
-        <!--android:id="@+id/button700" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button700"-->
-        <!--android:layout_alignRight="@+id/button700"-->
-        <!--android:layout_alignEnd="@+id/button700"-->
-        <!--android:id="@+id/button800" />-->
-
-    <!--<Button-->
-        <!--android:text="Button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/button800"-->
-        <!--android:layout_alignRight="@+id/button800"-->
-        <!--android:layout_alignEnd="@+id/button800"-->
-        <!--android:id="@+id/button900" />-->
+    </LinearLayout>
 </RelativeLayout>

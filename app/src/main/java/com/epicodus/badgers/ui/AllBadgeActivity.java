@@ -56,6 +56,33 @@ public class AllBadgeActivity extends AppCompatActivity {
                 case "100":
                     mFilterSpinner.setSelection(2);
                     break;
+                case "200":
+                    mFilterSpinner.setSelection(3);
+                    break;
+                case "300":
+                    mFilterSpinner.setSelection(4);
+                    break;
+                case "400":
+                    mFilterSpinner.setSelection(5);
+                    break;
+                case "500":
+                    mFilterSpinner.setSelection(6);
+                    break;
+                case "600":
+                    mFilterSpinner.setSelection(7);
+                    break;
+                case "700":
+                    mFilterSpinner.setSelection(8);
+                    break;
+                case "800":
+                    mFilterSpinner.setSelection(9);
+                    break;
+                case "900":
+                    mFilterSpinner.setSelection(10);
+                    break;
+                default:
+                    mFilterSpinner.setSelection(0);
+                    break;
             }
 
         }
