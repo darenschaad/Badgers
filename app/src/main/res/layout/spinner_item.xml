@@ -8,4 +8,5 @@
     android:text="Spinner Stuff"
     android:textColor="@android:color/white"
     android:padding="5dip"
+    android:ellipsize="end"
     />

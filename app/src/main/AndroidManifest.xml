@@ -34,7 +34,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.AllBadgeActivity" />
         </activity>
-        <activity android:name=".ui.CategoryActivity"></activity>
+        <activity android:name=".ui.CategoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

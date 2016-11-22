@@ -1,9 +1,15 @@
 package com.epicodus.badgers.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +25,11 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.cat100TextView) TextView mCat100TextView;
     @BindView(R.id.cat100ImageView) ImageView mCat100ImageView;
 
+
+    double height;
+    double width;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +39,24 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         mCat000ImageView.setOnClickListener(this);
         mCat100TextView.setOnClickListener(this);
         mCat000ImageView.setOnClickListener(this);
+
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        height = size.y;
+        width = size.x;
+        Log.d("Screen Size", Double.toString(width));
+
+        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        int density = metrics.densityDpi;
+        Log.d("density", density + "");
+        double screenWidth = (double)width/(double)density;
+        double screenHeight = (double)height/(double)density;
+        double x = Math.pow(screenWidth,2);
+        double y = Math.pow(screenHeight,2);
+        double screenInches = Math.sqrt(x+y);
+        Log.d("Screen width", Double.toString(screenInches));
 
     }
 

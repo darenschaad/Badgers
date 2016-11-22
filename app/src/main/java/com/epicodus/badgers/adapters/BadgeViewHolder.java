@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -91,8 +92,9 @@ public class BadgeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         display.getSize(size);
         height = size.y;
         width = size.x;
+        Log.d("screenWidth", width + "");
 
-        if (width < 800){
+        if (width < 750){
             mBadgeImageView.getLayoutParams().width = 200;
             mBadgeImageView.getLayoutParams().height = 200;
             mBadgeListCategory.setTextSize(13);
