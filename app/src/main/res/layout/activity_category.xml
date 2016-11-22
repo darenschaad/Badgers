@@ -4,14 +4,16 @@
     android:id="@+id/activity_category"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:paddingRight="4dp"
+    android:paddingLeft="4dp"
     tools:context="com.epicodus.badgers.ui.CategoryActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:id="@+id/cat01Layout">
+        android:id="@+id/cat01Layout"
+        android:paddingTop="4dp">
 
         <ImageView
             android:layout_width="0dp"
@@ -61,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="4dp"
         android:id="@+id/cat23Layout"
         android:layout_below="@+id/cat01Layout">
 
@@ -70,7 +73,7 @@
             android:id="@+id/cat200ImageView"
             android:src="@drawable/icon"
             android:layout_weight="0.4"
-            android:background="@color/category0Primary"
+            android:background="@color/category200Primary"
             android:layout_gravity="left"
             />
         <TextView
@@ -82,8 +85,8 @@
             android:gravity="center_vertical|center_horizontal"
             android:id="@+id/cat200TextView"
             android:layout_weight="0.6"
-            android:background="@color/category0Primary"
-            android:textColor="@color/category0Text"
+            android:background="@color/category200Primary"
+            android:textColor="@color/category200Text"
             />
         <ImageView
             android:layout_width="0dp"
@@ -91,7 +94,7 @@
             android:id="@+id/cat300ImageView"
             android:src="@drawable/icon"
             android:layout_weight="0.4"
-            android:background="@color/category100Primary"
+            android:background="@color/category300Primary"
             android:layout_gravity="left"
             />
         <TextView
@@ -103,9 +106,161 @@
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="0.6"
             android:id="@+id/cat300TextView"
-            android:background="@color/category100Primary"
-            android:textColor="@color/category100Text"
+            android:background="@color/category300Primary"
+            android:textColor="@color/category300Text"
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:id="@+id/cat45Layout"
+        android:layout_below="@+id/cat23Layout">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat400ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category400Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/category000ImageView"
+            android:text="400 \n LANGUAGES"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/cat400TextView"
+            android:layout_weight="0.6"
+            android:background="@color/category400Primary"
+            android:textColor="@color/category400Text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat500ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category500Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/cat100ImageView"
+            android:text="500 \n SCIENCE"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.6"
+            android:id="@+id/cat500TextView"
+            android:background="@color/category500Primary"
+            android:textColor="@color/category500Text"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:id="@+id/cat67Layout"
+        android:layout_below="@+id/cat45Layout">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat600ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category600Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/category000ImageView"
+            android:text="600 \n TECHNOLOGY"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/cat600TextView"
+            android:layout_weight="0.6"
+            android:background="@color/category600Primary"
+            android:textColor="@color/category600Text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat700ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category700Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/cat100ImageView"
+            android:text="700 \n ARTS \n RECREATION"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.6"
+            android:id="@+id/cat700TextView"
+            android:background="@color/category700Primary"
+            android:textColor="@color/category700Text"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:id="@+id/cat89Layout"
+        android:layout_below="@+id/cat67Layout">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat800ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category800Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/category000ImageView"
+            android:text="800 \n LITERATURE"
+            android:gravity="center_vertical|center_horizontal"
+            android:id="@+id/cat800TextView"
+            android:layout_weight="0.6"
+            android:background="@color/category800Primary"
+            android:textColor="@color/category800Text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:id="@+id/cat900ImageView"
+            android:src="@drawable/icon"
+            android:layout_weight="0.4"
+            android:background="@color/category900Primary"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/category_activity_text"
+            android:layout_toRightOf="@+id/cat100ImageView"
+            android:text="900 \n HISTORY \n GEOGRAPHY"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.6"
+            android:id="@+id/cat900TextView"
+            android:background="@color/category900Primary"
+            android:textColor="@color/category900Text"
+            />
     </LinearLayout>
 </RelativeLayout>

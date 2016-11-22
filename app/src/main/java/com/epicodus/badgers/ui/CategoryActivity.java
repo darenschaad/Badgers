@@ -29,6 +29,19 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.cat200ImageView) ImageView mCat200ImageView;
     @BindView(R.id.cat300TextView) TextView mCat300TextView;
     @BindView(R.id.cat300ImageView) ImageView mCat300ImageView;
+    @BindView(R.id.cat400TextView) TextView mCat400TextView;
+    @BindView(R.id.cat400ImageView) ImageView mCat400ImageView;
+    @BindView(R.id.cat500TextView) TextView mCat500TextView;
+    @BindView(R.id.cat500ImageView) ImageView mCat500ImageView;
+    @BindView(R.id.cat600TextView) TextView mCat600TextView;
+    @BindView(R.id.cat600ImageView) ImageView mCat600ImageView;
+    @BindView(R.id.cat700TextView) TextView mCat700TextView;
+    @BindView(R.id.cat700ImageView) ImageView mCat700ImageView;
+    @BindView(R.id.cat800TextView) TextView mCat800TextView;
+    @BindView(R.id.cat800ImageView) ImageView mCat800ImageView;
+    @BindView(R.id.cat900TextView) TextView mCat900TextView;
+    @BindView(R.id.cat900ImageView) ImageView mCat900ImageView;
+
 
 
     double height;
@@ -48,6 +61,18 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         mCat200ImageView.setOnClickListener(this);
         mCat300TextView.setOnClickListener(this);
         mCat300ImageView.setOnClickListener(this);
+        mCat400TextView.setOnClickListener(this);
+        mCat400ImageView.setOnClickListener(this);
+        mCat500TextView.setOnClickListener(this);
+        mCat500ImageView.setOnClickListener(this);
+        mCat600TextView.setOnClickListener(this);
+        mCat600ImageView.setOnClickListener(this);
+        mCat700TextView.setOnClickListener(this);
+        mCat700ImageView.setOnClickListener(this);
+        mCat800TextView.setOnClickListener(this);
+        mCat800ImageView.setOnClickListener(this);
+        mCat900TextView.setOnClickListener(this);
+        mCat900ImageView.setOnClickListener(this);
 
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
@@ -71,16 +96,34 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         mCat100ImageView.getLayoutParams().height = (int) height/8;
         mCat200ImageView.getLayoutParams().height = (int) height/8;
         mCat300ImageView.getLayoutParams().height = (int) height/8;
+        mCat400ImageView.getLayoutParams().height = (int) height/8;
+        mCat500ImageView.getLayoutParams().height = (int) height/8;
+        mCat600ImageView.getLayoutParams().height = (int) height/8;
+        mCat700ImageView.getLayoutParams().height = (int) height/8;
+        mCat800ImageView.getLayoutParams().height = (int) height/8;
+        mCat900ImageView.getLayoutParams().height = (int) height/8;
 
         mCat000TextView.setTextSize( (float) height/55);
         mCat100TextView.setTextSize( (float) height/55);
         mCat200TextView.setTextSize( (float) height/55);
         mCat300TextView.setTextSize( (float) height/55);
+        mCat400TextView.setTextSize( (float) height/55);
+        mCat500TextView.setTextSize( (float) height/55);
+        mCat600TextView.setTextSize( (float) height/55);
+        mCat700TextView.setTextSize( (float) height/55);
+        mCat800TextView.setTextSize( (float) height/55);
+        mCat900TextView.setTextSize( (float) height/55);
 
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/000.png").into(mCat000ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/100.png").into(mCat100ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/200.png").into(mCat200ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/300.png").into(mCat300ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/400.png").into(mCat400ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/500.png").into(mCat500ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/600.png").into(mCat600ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/700.png").into(mCat700ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/800.png").into(mCat800ImageView);
+        Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/900.png").into(mCat900ImageView);
 
 
 
@@ -129,6 +172,66 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 Intent intent8 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
                 intent8.putExtra("category", "300");
                 startActivity(intent8);
+                break;
+            case R.id.cat400TextView:
+                Intent intent9 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent9.putExtra("category", "400");
+                startActivity(intent9);
+                break;
+            case R.id.cat400ImageView:
+                Intent intent10 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent10.putExtra("category", "400");
+                startActivity(intent10);
+                break;
+            case R.id.cat500TextView:
+                Intent intent11 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent11.putExtra("category", "500");
+                startActivity(intent11);
+                break;
+            case R.id.cat500ImageView:
+                Intent intent12 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent12.putExtra("category", "500");
+                startActivity(intent12);
+                break;
+            case R.id.cat600TextView:
+                Intent intent13 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent13.putExtra("category", "600");
+                startActivity(intent13);
+                break;
+            case R.id.cat600ImageView:
+                Intent intent14 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent14.putExtra("category", "600");
+                startActivity(intent14);
+                break;
+            case R.id.cat700TextView:
+                Intent intent15 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent15.putExtra("category", "600");
+                startActivity(intent15);
+                break;
+            case R.id.cat700ImageView:
+                Intent intent16 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent16.putExtra("category", "700");
+                startActivity(intent16);
+                break;
+            case R.id.cat800TextView:
+                Intent intent17 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent17.putExtra("category", "800");
+                startActivity(intent17);
+                break;
+            case R.id.cat800ImageView:
+                Intent intent18 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent18.putExtra("category", "800");
+                startActivity(intent18);
+                break;
+            case R.id.cat900TextView:
+                Intent intent19 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent19.putExtra("category", "900");
+                startActivity(intent19);
+                break;
+            case R.id.cat900ImageView:
+                Intent intent20 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent20.putExtra("category", "900");
+                startActivity(intent20);
                 break;
         }
     }
