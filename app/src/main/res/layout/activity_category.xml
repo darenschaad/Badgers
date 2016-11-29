@@ -39,6 +39,9 @@
             android:background="@color/category0Primary"
             android:textColor="@color/category0Text"
             />
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -92,6 +95,9 @@
             android:background="@color/category200Primary"
             android:textColor="@color/category200Text"
             />
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -144,6 +150,9 @@
             android:background="@color/category400Primary"
             android:textColor="@color/category400Text"
             />
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -196,6 +205,9 @@
             android:background="@color/category600Primary"
             android:textColor="@color/category600Text"
             />
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -223,6 +235,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:layout_weight="1"
         android:id="@+id/cat89Layout"
         android:layout_below="@+id/cat67Layout">
@@ -248,11 +261,13 @@
             android:background="@color/category800Primary"
             android:textColor="@color/category800Text"
             />
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat900ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category900Primary"
             android:layout_gravity="left"
