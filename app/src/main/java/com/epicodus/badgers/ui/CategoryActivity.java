@@ -3,6 +3,7 @@ package com.epicodus.badgers.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -42,11 +43,10 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.cat900TextView) TextView mCat900TextView;
     @BindView(R.id.cat900ImageView) ImageView mCat900ImageView;
 
-
-
     double height;
     double width;
-
+    double screenHeight;
+    double screenWidth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +74,19 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         mCat900TextView.setOnClickListener(this);
         mCat900ImageView.setOnClickListener(this);
 
+        Typeface bebas = Typeface.createFromAsset(this.getAssets(),"fonts/bebas.otf");
+
+        mCat000TextView.setTypeface(bebas);
+        mCat100TextView.setTypeface(bebas);
+        mCat200TextView.setTypeface(bebas);
+        mCat300TextView.setTypeface(bebas);
+        mCat400TextView.setTypeface(bebas);
+        mCat500TextView.setTypeface(bebas);
+        mCat600TextView.setTypeface(bebas);
+        mCat700TextView.setTypeface(bebas);
+        mCat800TextView.setTypeface(bebas);
+        mCat900TextView.setTypeface(bebas);
+
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
@@ -85,34 +98,34 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         DisplayMetrics metrics = this.getResources().getDisplayMetrics();
         int density = metrics.densityDpi;
         Log.d("density", density + "");
-        double screenWidth = (double)width/(double)density;
-        double screenHeight = (double)height/(double)density;
+        screenWidth = (double)width/(double)density;
+        screenHeight = (double)height/(double)density;
         double x = Math.pow(screenWidth,2);
         double y = Math.pow(screenHeight,2);
         double screenInches = Math.sqrt(x+y);
         Log.d("Screen width", Double.toString(screenInches));
 
-        mCat000ImageView.getLayoutParams().height = (int) height/8;
-        mCat100ImageView.getLayoutParams().height = (int) height/8;
-        mCat200ImageView.getLayoutParams().height = (int) height/8;
-        mCat300ImageView.getLayoutParams().height = (int) height/8;
-        mCat400ImageView.getLayoutParams().height = (int) height/8;
-        mCat500ImageView.getLayoutParams().height = (int) height/8;
-        mCat600ImageView.getLayoutParams().height = (int) height/8;
-        mCat700ImageView.getLayoutParams().height = (int) height/8;
-        mCat800ImageView.getLayoutParams().height = (int) height/8;
-        mCat900ImageView.getLayoutParams().height = (int) height/8;
+//        mCat000ImageView.getLayoutParams().height = (int) height/8;
+//        mCat100ImageView.getLayoutParams().height = (int) height/8;
+//        mCat200ImageView.getLayoutParams().height = (int) height/8;
+//        mCat300ImageView.getLayoutParams().height = (int) height/8;
+//        mCat400ImageView.getLayoutParams().height = (int) height/8;
+//        mCat500ImageView.getLayoutParams().height = (int) height/8;
+//        mCat600ImageView.getLayoutParams().height = (int) height/8;
+//        mCat700ImageView.getLayoutParams().height = (int) height/8;
+//        mCat800ImageView.getLayoutParams().height = (int) height/8;
+//        mCat900ImageView.getLayoutParams().height = (int) height/8;
 
-        mCat000TextView.setTextSize( (float) height/55);
-        mCat100TextView.setTextSize( (float) height/55);
-        mCat200TextView.setTextSize( (float) height/55);
-        mCat300TextView.setTextSize( (float) height/55);
-        mCat400TextView.setTextSize( (float) height/55);
-        mCat500TextView.setTextSize( (float) height/55);
-        mCat600TextView.setTextSize( (float) height/55);
-        mCat700TextView.setTextSize( (float) height/55);
-        mCat800TextView.setTextSize( (float) height/55);
-        mCat900TextView.setTextSize( (float) height/55);
+        mCat000TextView.setTextSize( (float) screenHeight * 5);
+        mCat100TextView.setTextSize( (float) screenHeight * 5);
+        mCat200TextView.setTextSize( (float) screenHeight * 5);
+        mCat300TextView.setTextSize( (float) screenHeight * 5);
+        mCat400TextView.setTextSize( (float) screenHeight * 5);
+        mCat500TextView.setTextSize( (float) screenHeight * 5);
+        mCat600TextView.setTextSize( (float) screenHeight * 5);
+        mCat700TextView.setTextSize( (float) screenHeight * 5);
+        mCat800TextView.setTextSize( (float) screenHeight * 5);
+        mCat900TextView.setTextSize( (float) screenHeight * 5);
 
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/000.png").into(mCat000ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/100.png").into(mCat100ImageView);

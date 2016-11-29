@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
 import com.epicodus.badgers.adapters.BadgeListAdapter;
+import com.epicodus.badgers.adapters.CategorySpinnerAdapter;
 import com.epicodus.badgers.models.Badge;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,9 +47,10 @@ public class AllBadgeActivity extends AppCompatActivity {
         String category = intent.getStringExtra("category");
 
 
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
-                R.array.filterArray, R.layout.spinner_item);
+        CategorySpinnerAdapter adapter = new CategorySpinnerAdapter(this, R.layout.spinner_item, Arrays.asList(getResources().getStringArray(R.array.filterArray)));
+
         mFilterSpinner.setAdapter(adapter);
+
         if (category != null){
             switch (category) {
                 case "000":
