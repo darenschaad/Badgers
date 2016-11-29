@@ -12,6 +12,7 @@
     android:background="@drawable/background">
 
     <Spinner
+        style="@style/spinner"
         android:id="@+id/filterSpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

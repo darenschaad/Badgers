@@ -1,6 +1,8 @@
 package com.epicodus.badgers.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.support.v4.content.ContextCompat;
 
 import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
@@ -36,6 +39,7 @@ public class AllBadgeActivity extends AppCompatActivity {
     private DatabaseReference mRef;
     private ValueEventListener mRefListener;
     public ArrayList<Badge> mBadges = new ArrayList<>();
+    private Context mContext;
 
 
     @Override
@@ -50,6 +54,9 @@ public class AllBadgeActivity extends AppCompatActivity {
         CategorySpinnerAdapter adapter = new CategorySpinnerAdapter(this, R.layout.spinner_item, Arrays.asList(getResources().getStringArray(R.array.filterArray)));
 
         mFilterSpinner.setAdapter(adapter);
+//        mFilterSpinner.getBackground().setColorFilter(ContextCompat.getColor(mContext, R.color.category0Primary), PorterDuff.Mode.SRC_ATOP);
+
+
 
         if (category != null){
             switch (category) {
