@@ -12,7 +12,6 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.epicodus.badgers.R;
@@ -137,10 +136,6 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/700.png").into(mCat700ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/800.png").into(mCat800ImageView);
         Picasso.with(this).load("https://spcilk.github.io/badger-badge-images/images/900.png").into(mCat900ImageView);
-
-
-
-
     }
 
     @Override

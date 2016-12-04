@@ -78,7 +78,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat200ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category200Primary"
             android:layout_gravity="left"
@@ -102,7 +101,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat300ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category300Primary"
             android:layout_gravity="left"
@@ -133,7 +131,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat400ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category400Primary"
             android:layout_gravity="left"
@@ -157,7 +154,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat500ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category500Primary"
             android:layout_gravity="left"
@@ -188,7 +184,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat600ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category600Primary"
             android:layout_gravity="left"
@@ -212,7 +207,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat700ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category700Primary"
             android:layout_gravity="left"
@@ -244,7 +238,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/cat800ImageView"
-
             android:layout_weight="0.5"
             android:background="@color/category800Primary"
             android:layout_gravity="start"
