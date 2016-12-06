@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference mRef;
     private ValueEventListener mRefListener;
     public int mBadgeCount;
+    public int mRandomNumber;
+
 
 
 
@@ -47,12 +49,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        mSearchButton = (Button) findViewById(R.id.searchButton);
         mSearchButton.setOnClickListener(this);
         mViewAllButton.setOnClickListener(this);
         mViewCategoryButton.setOnClickListener(this);
         mRandomButton.setOnClickListener(this);
+
+        Log.d("Array", mBadges.size() + "");
+        mBadges.clear();
+        mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
+        mRefListener = mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
+                    Badge badge = badgeSnapShot.getValue(Badge.class);
+                    mBadges.add(badge);
+                }
+                mBadgeCount = (int) dataSnapshot.getChildrenCount();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
+
+//    @Override
+//    public void onRestart(){
+//        mBadges.clear();
+//    }
+//
+//    @Override
+//    public void onStop(){
+//        mBadges.clear();
+//    }
 
     @Override
     public void onClick(View v) {
@@ -81,32 +110,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent2);
                 break;
             case R.id.randomButton:
-                Log.d("hello", "hello");
-                mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
-                mRefListener = mRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
-                            Badge badge = badgeSnapShot.getValue(Badge.class);
-                            mBadges.add(badge);
-                        }
-                        mBadgeCount = (int) dataSnapshot.getChildrenCount();
-                        Random random = new Random();
-                        int mRandomNumber = random.nextInt(mBadgeCount);
-                        Log.d("count", mRandomNumber + "hello");
-                        int itemPosition = mRandomNumber;
-                        Intent intent3 = new Intent(MainActivity.this, BadgeDetailActivity.class);
-                        intent3.putExtra("position", itemPosition);
-                        intent3.putExtra("badges", Parcels.wrap(mBadges));
-                        startActivity(intent3);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                    }
-                });
-
-
+                Log.d("ArrayButton", mBadges.size() + "");
+                Random random = new Random();
+                mRandomNumber = random.nextInt(mBadgeCount);
+                Log.d("ArrayNumber", mRandomNumber + "hello");
+                int itemPosition = mRandomNumber;
+                Intent intent3 = new Intent(MainActivity.this, BadgeDetailActivity.class);
+                intent3.putExtra("position", itemPosition);
+                intent3.putExtra("badges", Parcels.wrap(mBadges));
+                startActivity(intent3);
+                break;
         }
     }
 }
