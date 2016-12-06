@@ -27,7 +27,6 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.searchEditText) EditText mSearchEditText;
     @BindView(R.id.searchButton) Button mSearchButton;
@@ -40,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ValueEventListener mRefListener;
     public int mBadgeCount;
     public int mRandomNumber;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,16 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
-
-//    @Override
-//    public void onRestart(){
-//        mBadges.clear();
-//    }
-//
-//    @Override
-//    public void onStop(){
-//        mBadges.clear();
-//    }
 
     @Override
     public void onClick(View v) {
