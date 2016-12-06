@@ -9,10 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
+import com.epicodus.badgers.models.Badge;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.searchButton) Button mSearchButton;
     @BindView(R.id.viewAllButton) Button mViewAllButton;
     @BindView(R.id.viewCategoryButton) Button mViewCategoryButton;
+    @BindView(R.id.randomButton) Button mRandomButton;
+
+    private ArrayList<Badge> mBadges = new ArrayList<>();
+    private DatabaseReference mRef;
+    private ValueEventListener mRefListener;
+    public int mBadgeCount;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSearchButton.setOnClickListener(this);
         mViewAllButton.setOnClickListener(this);
         mViewCategoryButton.setOnClickListener(this);
+        mRandomButton.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +80,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent2 = new Intent(MainActivity.this, CategoryActivity.class);
                 startActivity(intent2);
                 break;
+            case R.id.randomButton:
+                Log.d("hello", "hello");
+                mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
+                mRefListener = mRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
+                            Badge badge = badgeSnapShot.getValue(Badge.class);
+                            mBadges.add(badge);
+                        }
+                        mBadgeCount = (int) dataSnapshot.getChildrenCount();
+                        Random random = new Random();
+                        int mRandomNumber = random.nextInt(mBadgeCount);
+                        Log.d("count", mRandomNumber + "hello");
+                        int itemPosition = mRandomNumber;
+                        Intent intent3 = new Intent(MainActivity.this, BadgeDetailActivity.class);
+                        intent3.putExtra("position", itemPosition);
+                        intent3.putExtra("badges", Parcels.wrap(mBadges));
+                        startActivity(intent3);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
+
         }
     }
 }
