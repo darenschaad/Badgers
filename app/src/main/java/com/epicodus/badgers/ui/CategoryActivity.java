@@ -213,7 +213,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.cat700TextView:
                 Intent intent15 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
-                intent15.putExtra("category", "600");
+                intent15.putExtra("category", "700");
                 startActivity(intent15);
                 break;
             case R.id.cat700ImageView:

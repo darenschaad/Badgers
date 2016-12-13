@@ -74,7 +74,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:id="@+id/badgeImageView"
-                    android:src="@drawable/icon"
+                    android:src="@drawable/icon2"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center" />
                 </RelativeLayout>
