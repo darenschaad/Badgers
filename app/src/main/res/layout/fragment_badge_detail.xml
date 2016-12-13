@@ -242,6 +242,7 @@
                                 android:textStyle="bold"
                                 android:id="@+id/descriptionTextView"
                                 android:text="Description"
+                                android:autoLink="web"
                                 android:textSize="@dimen/text_small"
                                 android:scrollHorizontally="false"
                                 android:paddingLeft="3dp"
