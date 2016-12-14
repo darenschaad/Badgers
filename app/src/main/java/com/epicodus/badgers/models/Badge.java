@@ -20,13 +20,15 @@ public class Badge {
     double latitude;
     double longitude;
     int pushId;
-//    List<String> tags = new ArrayList<>();
+    String tags;
+    String challenges;
 
     public Badge() {}
 
 
 
-    public Badge(String name, String imageUrl, String comments, String description, String proof, String index, String creator, String date, int category, double latitude, double longitude, int pushId){
+
+    public Badge(String name, String imageUrl, String comments, String description, String proof, String index, String creator, String date, int category, double latitude, double longitude, int pushId, String tags, String challenges){
         this.name = name;
         this.imageUrl = imageUrl;
         this.comments = comments;
@@ -39,8 +41,8 @@ public class Badge {
         this.latitude = latitude;
         this.longitude = longitude;
         this.pushId = pushId;
-
-//        this.tags = tags;
+        this.tags = tags;
+        this.challenges = challenges;
     }
 
     public String getName() {
@@ -83,5 +85,13 @@ public class Badge {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public String getChallenges() {
+        return challenges;
     }
 }

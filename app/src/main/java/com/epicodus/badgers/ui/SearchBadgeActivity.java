@@ -3,12 +3,15 @@ package com.epicodus.badgers.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.badgers.Constants;
 import com.epicodus.badgers.R;
 import com.epicodus.badgers.adapters.BadgeListAdapter;
 import com.epicodus.badgers.models.Badge;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -39,34 +42,44 @@ public class SearchBadgeActivity extends AppCompatActivity {
 
         mRef  = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_LOCATION_BADGES);
 
-//        mRefListener = mRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
-//                    Badge badge = badgeSnapShot.getValue(Badge.class);
-//                    for (int i=0; i<keyWords.size(); i++ ){
-//                        for (int j=0; j<badge.getTags().size(); j++) {
-//                            if (badge.getTags().get(j).contains(keyWords.get(i))) {
-//                                if(!mBadges.contains(badge)) {
-//                                    mBadges.add(badge);
-//                                    break;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                mAdapter = new BadgeListAdapter(getApplicationContext(), mBadges);
-//                msearchRecyclerView.setAdapter(mAdapter);
-//                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchBadgeActivity.this);
-//                msearchRecyclerView.setLayoutManager(layoutManager);
-//                msearchRecyclerView.setHasFixedSize(true);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+        mRefListener = mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot badgeSnapShot : dataSnapshot.getChildren()) {
+                    Badge badge = badgeSnapShot.getValue(Badge.class);
+                    for (int i=0; i<keyWords.size(); i++ ){
+                            if (badge.getTags().contains(keyWords.get(i))) {
+                                if(!mBadges.contains(badge)) {
+                                    mBadges.add(badge);
+                                    break;
+                                }
+                            }
+
+                    }
+                }
+                mAdapter = new BadgeListAdapter(getApplicationContext(), mBadges);
+                msearchRecyclerView.setAdapter(mAdapter);
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchBadgeActivity.this);
+                msearchRecyclerView.setLayoutManager(layoutManager);
+                msearchRecyclerView.setHasFixedSize(true);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 }
+
+//for (int i=0; i<keyWords.size(); i++ ){
+//        for (int j=0; j<badge.getTags().size(); j++) {
+//        if (badge.getTags().get(j).contains(keyWords.get(i))) {
+//        if(!mBadges.contains(badge)) {
+//        mBadges.add(badge);
+//        break;
+//        }
+//        }
+//        }
+//        }
