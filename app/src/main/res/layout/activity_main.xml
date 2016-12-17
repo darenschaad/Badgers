@@ -21,6 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingBottom="5dp"
+        android:background="@android:color/transparent"
         />
     <ImageView
         android:layout_below="@+id/nameImageView"
@@ -29,7 +30,8 @@
         app:srcCompat="@drawable/icon2"
         android:id="@+id/logoImageView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"/>
     <EditText
         android:textCursorDrawable="@drawable/edittext_cursor"
         android:background="@drawable/edittext_bg"
