@@ -76,17 +76,14 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         display.getSize(size);
         height = size.y;
         width = size.x;
-        Log.d("Screen Size", Double.toString(width));
 
         DisplayMetrics metrics = this.getResources().getDisplayMetrics();
         int density = metrics.densityDpi;
-        Log.d("density", density + "");
-        screenWidth = (double)width/(double)density;
-        screenHeight = (double)height/(double)density;
+        screenWidth = width/(double)density;
+        screenHeight = height/(double)density;
         double x = Math.pow(screenWidth,2);
         double y = Math.pow(screenHeight,2);
         double screenInches = Math.sqrt(x+y);
-        Log.d("Screen width", Double.toString(screenInches));
 
         Typeface bebas = Typeface.createFromAsset(this.getAssets(),"fonts/bebas.otf");
 

@@ -1,12 +1,18 @@
 package com.epicodus.badgers.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.epicodus.badgers.Constants;
@@ -33,12 +39,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.viewAllButton) Button mViewAllButton;
     @BindView(R.id.viewCategoryButton) Button mViewCategoryButton;
     @BindView(R.id.randomButton) Button mRandomButton;
+    @BindView(R.id.nameImageView) ImageView mNameImageView;
+    @BindView(R.id.logoImageView) ImageView mLogoImageView;
 
     private ArrayList<Badge> mBadges = new ArrayList<>();
     private DatabaseReference mRef;
     private ValueEventListener mRefListener;
     public int mBadgeCount;
     public int mRandomNumber;
+    double height;
+    double width;
+    double screenHeight;
+    double screenWidth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +62,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mViewAllButton.setOnClickListener(this);
         mViewCategoryButton.setOnClickListener(this);
         mRandomButton.setOnClickListener(this);
+
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        height = size.y;
+        width = size.x;
+
+        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        int density = metrics.densityDpi;
+        screenWidth = width/(double)density;
+        screenHeight = height/(double)density;
+        double x = Math.pow(screenWidth,2);
+        double y = Math.pow(screenHeight,2);
+        double screenInches = Math.sqrt(x+y);
+
+//        mNameImageView.getLayoutParams().width = (int) screenWidth/4;
 
         Log.d("Array", mBadges.size() + "");
         mBadges.clear();
