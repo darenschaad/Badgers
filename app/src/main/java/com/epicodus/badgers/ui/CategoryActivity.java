@@ -69,6 +69,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         TextView[] textViews = {mCat000TextView, mCat100TextView, mCat200TextView, mCat300TextView, mCat400TextView, mCat500TextView, mCat600TextView, mCat700TextView, mCat800TextView, mCat900TextView};
         ImageView[] imageViews = {mCat000ImageView, mCat100ImageView, mCat200ImageView, mCat300ImageView, mCat400ImageView, mCat500ImageView, mCat600ImageView, mCat700ImageView, mCat800ImageView, mCat900ImageView};
         LinearLayout[] clickLayouts = {mClick0Layout, mClick1Layout, mClick2Layout, mClick3Layout, mClick4Layout, mClick5Layout, mClick6Layout, mClick7Layout, mClick8Layout, mClick9Layout};
+        int[] clickIds = {R.id.click0Layout, R.id.click1Layout, R.id.click2Layout, R.id.click3Layout, R.id.click4Layout, R.id.click5Layout, R.id.click6Layout, R.id.click7Layout, R.id.click8Layout, R.id.click9Layout};
 
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
@@ -103,11 +104,70 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        for (int i = 0 ; i < clickLayouts.length ; i++)
-        if (v == clickLayouts[i]) {
-            Intent intent = new Intent(CategoryActivity.this, AllBadgeActivity.class);
-            intent.putExtra("category", categoryNumbers[i]);
-            startActivity(intent);
+        switch (v.getId()) {
+            case R.id.click0Layout:
+                Intent intent = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent.putExtra("category", "000");
+                startActivity(intent);
+                break;
+            case R.id.click1Layout:
+                Intent intent1 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent1.putExtra("category", "100");
+                startActivity(intent1);
+                break;
+            case R.id.click2Layout:
+                Intent intent2 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent2.putExtra("category", "200");
+                startActivity(intent2);
+                break;
+            case R.id.click3Layout:
+                Intent intent3 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent3.putExtra("category", "300");
+                startActivity(intent3);
+                break;
+            case R.id.click4Layout:
+                Intent intent4 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent4.putExtra("category", "400");
+                startActivity(intent4);
+                break;
+            case R.id.click5Layout:
+                Intent intent5 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent5.putExtra("category", "500");
+                startActivity(intent5);
+                break;
+            case R.id.click6Layout:
+                Intent intent6 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent6.putExtra("category", "600");
+                startActivity(intent6);
+                break;
+            case R.id.click7Layout:
+                Intent intent7 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent7.putExtra("category", "700");
+                startActivity(intent7);
+                break;
+            case R.id.click8Layout:
+                Intent intent8 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent8.putExtra("category", "800");
+                startActivity(intent8);
+                break;
+            case R.id.click9Layout:
+                Intent intent9 = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+                intent9.putExtra("category", "900");
+                startActivity(intent9);
+                break;
         }
+//        if (v == mClick0Layout) {
+//            Intent intent = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+//            intent.putExtra("category", "000");
+//            startActivity(intent);
+//        }
+//        for (int i = 0 ; i < clickLayouts.length ; i++) {
+//            if (v == clickLayouts[i]) {
+//                Log.d("no good", clickLayouts[i] +"");
+//                Intent intent = new Intent(CategoryActivity.this, AllBadgeActivity.class);
+//                intent.putExtra("category", categoryNumbers[i]);
+//                startActivity(intent);
+//            }
+//        }
     }
 }
